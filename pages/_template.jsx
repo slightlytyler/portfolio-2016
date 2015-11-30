@@ -3,6 +3,7 @@ import { RouteHandler, Link, State } from 'react-router';
 import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
 import { link } from 'gatsby-helpers';
 
+import Header from '../components/Header';
 import FeaturedProject from '../components/FeaturedProject';
 import WIWO from '../components/WIWO';
 
@@ -15,28 +16,7 @@ export default class PageTemplate extends Component {
           fontSize: '1.11vw'
         }}
       >
-        <header
-          className="site-header"
-          style={{
-            position: 'fixed',
-            top: '0',
-            left: '0',
-            right: '0',
-            display: 'flex',
-            alignItems: 'center',
-            height: '4.5em',
-            padding: '0 2em',
-            backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
-            boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
-          }}
-        >
-          <img
-            src={link("/logo.svg")}
-            style={{
-              width: '8.75em'
-            }}
-          />
-        </header>
+        <Header />
 
         <div
           ref="home"

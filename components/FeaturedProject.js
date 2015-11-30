@@ -23,15 +23,15 @@ export default class FeaturedProject extends Component {
       color,
       projectStyle,
     } = this.props;
-    const imageName = name + '-project-image.jpg';
-    const logoName = name + '-project-logo.svg';
+    const imageName = `/assets/projects/${name}/project-image.jpg`;
+    const logoName = `/assets/projects/${name}/project-logo.svg`;
 
     return (
       <li
         style={[
           styles.base,
           styles['baseStyle' + upperCaseFirst(projectStyle)],
-          { backgroundImage: `url(${link('/' + imageName)})` }
+          { backgroundImage: `url(${link(imageName)})` }
         ]}>
         <div
           className="container"
@@ -41,7 +41,7 @@ export default class FeaturedProject extends Component {
           ]}>
           <img
             className="project-logo"
-            src={ link('/' + logoName) }
+            src={ link(logoName) }
             style={[
               styles.logo,
               styles['logoStyle' + upperCaseFirst(projectStyle)],
