@@ -69,6 +69,7 @@ const styles = {
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     backgroundRepeat: 'no-repeat',
+    cursor: 'pointer'
   },
   baseStyleOne: {
     flexDirection: 'column',
