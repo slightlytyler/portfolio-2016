@@ -54,7 +54,7 @@ export default class FeaturedProject extends Component {
               styles[projectStyle].link,
               { color: `${color || 'white'}` }
             ]}>
-            { linkText }
+            {linkText}
           </a>
         </div>
       </li>
