@@ -21,8 +21,8 @@ export default class FeaturedProject extends Component {
       logoBaseline,
       linkText,
       color,
-      projectStyle,
     } = this.props;
+    const projectStyle = `style${upperCaseFirst(this.props.projectStyle)}`;
     const imageName = `/assets/projects/${name}/project-image.jpg`;
     const logoName = `/assets/projects/${name}/project-logo.svg`;
 
@@ -30,28 +30,28 @@ export default class FeaturedProject extends Component {
       <li
         style={[
           styles.base,
-          styles['baseStyle' + upperCaseFirst(projectStyle)],
+          styles[projectStyle].base,
           { backgroundImage: `url(${link(imageName)})` }
         ]}>
         <div
           className="container"
           style={[
             styles.container,
-            styles['containerStyle' + upperCaseFirst(projectStyle)]
+            styles[projectStyle].container
           ]}>
           <img
             className="project-logo"
             src={ link(logoName) }
             style={[
               styles.logo,
-              styles['logoStyle' + upperCaseFirst(projectStyle)],
+              styles[projectStyle].logo,
               { marginTop: `${logoBaseline}em` }
             ]} />
           <a
             className="link"
             style={[
               styles.link,
-              styles['linkStyle' + upperCaseFirst(projectStyle)],
+              styles[projectStyle].link,
               { color: `${color || 'white'}` }
             ]}>
             { linkText }
@@ -71,50 +71,63 @@ const styles = {
     backgroundRepeat: 'no-repeat',
     cursor: 'pointer'
   },
-  baseStyleOne: {
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-  },
-  baseStyleTwo: {
-    flexDirection: 'row',
-  },
+
   container: {
     position: 'relative',
     flex: 1,
   },
-  containerStyleOne: {
-    width: '40%',
-    marginTop: '4.5em',
-  },
-  containerStyleTwo: {
-    display: 'flex',
-    alignItems: 'flex-start',
-    justifyContent: 'space-between',
-    height: '5em',
-    margin: '4.5em 8% 0'
-  },
-  logo: {
-  },
-  logoStyleOne: {
-    position: 'absolute',
-    left: '50%',
-    top: 0,
-    transform: 'translateX(-50%)',
-    width: '80%'
-  },
-  logoStyleTwo: {
-    width: '32%',
-  },
+
   link: {
     fontWeight: '300',
     whiteSpace: 'nowrap'
   },
-  linkStyleOne: {
-    position: 'absolute',
-    left: '50%',
-    top: '45%',
-    transform: 'translate(-50%, -50%)',
+
+  styleOne: {
+    base: {
+      flexDirection: 'column',
+      alignItems: 'flex-end',
+    },
+
+    container: {
+      width: '40%',
+      marginTop: '4.5em',
+    },
+
+    logo: {
+      position: 'absolute',
+      left: '50%',
+      top: 0,
+      transform: 'translateX(-50%)',
+      width: '80%'
+    },
+
+    link: {
+      position: 'absolute',
+      left: '50%',
+      top: '45%',
+      transform: 'translate(-50%, -50%)',
+    }
   },
-  linkStyleTwo: {
+
+  styleTwo: {
+    base: {
+      flexDirection: 'row',
+    },
+
+    container: {
+      display: 'flex',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      height: '5em',
+      margin: '4.5em 8% 0'
+    },
+
+    logo: {
+      width: '32%',
+    },
+
+    link: {
+
+    }
   }
 };
