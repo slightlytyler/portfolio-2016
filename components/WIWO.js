@@ -60,7 +60,7 @@ export default class WIWO extends Component {
         <div style={styles.projectSet.container}>
           {categories.map(category => (
               <section
-                key={category}
+                key={`wiwoCategory:${category}`}
                 style={styles.projectSet.base}
               >
                 <ul style={styles.projectSet.list}>
@@ -69,7 +69,7 @@ export default class WIWO extends Component {
                   {Object.keys(projects[category]).map(project => (
                       <li
                         style={styles.projectSet.item}
-                        key={project}
+                        key={`wiwoProject:${category}-${project}`}
                       >
                         {project}
 

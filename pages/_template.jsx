@@ -12,6 +12,37 @@ import WIWO from '../components/WIWO';
 
 export default class PageTemplate extends Component {
   render() {
+    const featuredProjects = {
+      bluesky: {
+        color: "#0d5685",
+        logoBaseline: -1.8,
+        link: '/projects/bluesky/',
+        linkText: 'Explore Project',
+        projectStyle: 'one'
+      },
+
+      moxie: {
+        logoBaseline: -.5,
+        link: 'https://google.com',
+        linkText: 'Download App',
+        projectStyle: 'two'
+      },
+
+      'on-track': {
+        logoBaseline: -.2,
+        link: 'https://google.com',
+        linkText: 'View Repo',
+        projectStyle: 'one'
+      },
+
+      'bluprint': {
+        logoBaseline: -.26,
+        link: 'https://google.com',
+        linkText: 'Download from NPM',
+        projectStyle: 'two'
+      }
+    };
+
     return (
       <div
         className="page"
@@ -35,32 +66,30 @@ export default class PageTemplate extends Component {
               backgroundColor: 'light-grey',
               listStyle: 'none',
               margin: 0
-            }}>
-            <FeaturedProject
-              name="bluesky"
-              color="#0d5685"
-              logoBaseline={-1.8}
-              linkText="Explore Project"
-              projectStyle="one"
-            />
-            <FeaturedProject
-              name="moxie"
-              logoBaseline={-.5}
-              linkText="Download App"
-              projectStyle="two"
-            />
-            <FeaturedProject
-              name="on-track"
-              logoBaseline={-.2}
-              linkText="View Repo"
-              projectStyle="one"
-            />
-            <FeaturedProject
-              name="bluprint"
-              logoBaseline={-.26}
-              linkText="Download from NPM"
-              projectStyle="two"
-            />
+            }}
+          >
+            {Object.keys(featuredProjects).map(projectKey => {
+              let project = featuredProjects[projectKey];
+              let {
+                color,
+                logoBaseline,
+                link,
+                linkText,
+                projectStyle
+              } = project;
+
+              return (
+                <FeaturedProject
+                  key={`featuredProject:${projectKey}`}
+                  name={projectKey}
+                  color={color}
+                  logoBaseline={logoBaseline}
+                  link={link}
+                  linkText={linkText}
+                  projectStyle={projectStyle}
+                />
+              )
+            })}
           </ul>
 
           <WIWO />

@@ -1,6 +1,7 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import Radium from 'radium';
 
 import { link } from 'gatsby-helpers';
@@ -25,38 +26,71 @@ export default class FeaturedProject extends Component {
     const projectStyle = `style${upperCaseFirst(this.props.projectStyle)}`;
     const imageName = `/assets/projects/${name}/project-image.jpg`;
     const logoName = `/assets/projects/${name}/project-logo.svg`;
+    const isExternalLink = this.props.link.indexOf('http') !== -1;
+    const wrapLink = (content) => {
+      if (isExternalLink) {
+        return (
+          <a
+            href={this.props.link}
+            style={{
+              ...styles.touch,
+              ...styles[projectStyle].base
+            }}
+          >
+            {content}
+          </a>
+        );
+      } else {
+        return (
+          <Link
+            to={link(this.props.link)}
+            style={{
+              ...styles.touch,
+              ...styles[projectStyle].base
+            }}
+          >
+            {content}
+          </Link>
+        );
+      }
+    };
 
     return (
       <li
         style={[
           styles.base,
-          styles[projectStyle].base,
           { backgroundImage: `url(${link(imageName)})` }
-        ]}>
-        <div
-          className="container"
-          style={[
-            styles.container,
-            styles[projectStyle].container
-          ]}>
-          <img
-            className="project-logo"
-            src={ link(logoName) }
+        ]}
+      >
+        {wrapLink(
+          <div
+            className="container"
             style={[
-              styles.logo,
-              styles[projectStyle].logo,
-              { marginTop: `${logoBaseline}em` }
-            ]} />
-          <a
-            className="link"
-            style={[
-              styles.link,
-              styles[projectStyle].link,
-              { color: `${color || 'white'}` }
-            ]}>
-            {linkText}
-          </a>
-        </div>
+              styles.container,
+              styles[projectStyle].container
+            ]}
+          >
+            <img
+              className="project-logo"
+              src={ link(logoName) }
+              style={[
+                styles.logo,
+                styles[projectStyle].logo,
+                { marginTop: `${logoBaseline}em` }
+              ]}
+            />
+            <span
+              className="link"
+              style={[
+                styles.link,
+                styles[projectStyle].link,
+                { color: `${color || 'white'}` }
+              ]}
+            >
+              {linkText}
+            </span>
+          </div>
+        )}
       </li>
     );
   }
@@ -64,7 +98,7 @@ export default class FeaturedProject extends Component {
 
 const styles = {
   base: {
-    display: 'flex',
+    position: 'relative',
     flex: 1,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
@@ -72,8 +106,19 @@ const styles = {
     cursor: 'pointer'
   },
 
+  touch: {
+    display: 'flex',
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    textDecoration: 'none',
+  },
+
   container: {
     position: 'relative',
+    display: 'block',
     flex: 1,
   },
 
