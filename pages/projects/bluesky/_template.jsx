@@ -10,7 +10,7 @@ import { link } from 'gatsby-helpers';
 export default class ProjectTemplate extends Component {
   static defaultProps = {
     subProjects: {
-      Bluesky: {
+      Commerce: {
         description: 'Flagship ordering site.'
       },
 
@@ -142,7 +142,129 @@ export default class ProjectTemplate extends Component {
             styles.infoBase
           ]}
         >
-          <span>Something</span>
+          <header
+            style={styles.subProjectInfo.header.base}
+          >
+            <h3
+              style={styles.subProjectInfo.header.title}
+            >
+              Commerce
+            </h3>
+
+            <section className="pagination">
+              <span
+                style={[
+                  styles.subProjectInfo.header.pagination.item,
+                  styles.subProjectInfo.header.pagination.item.first
+                ]}
+              >
+                <span
+                  style={{
+                    marginRight: '0.25em',
+                    fontSize: '150%',
+                    lineHeight: 0,
+                    verticalAlign: '-.05em'
+                  }}
+                >
+                  &lsaquo;
+                </span>
+                &nbsp;Prev
+              </span>
+
+              <span
+                style={styles.subProjectInfo.header.pagination.item}
+              >
+                Next&nbsp;
+                <span
+                  style={{
+                    marginLeft: '0.25em',
+                    fontSize: '150%',
+                    lineHeight: 0,
+                    verticalAlign: '-.05em'
+                  }}
+                >
+                  &rsaquo;
+                </span>
+              </span>
+            </section>
+          </header>
+
+          <div
+            className="main"
+            style={styles.subProjectInfo.main}
+          >
+            <section
+              className="body"
+              style={styles.subProjectInfo.body}
+            >
+              <ul
+                className="details"
+                style={styles.subProjectInfo.details}
+              >
+                <li style={styles.subProjectInfo.details.item}>
+                  <img
+                    src={link('/assets/stack-icon.svg')}
+                    style={styles.subProjectInfo.details.icon}
+                  />
+                  <section style={styles.subProjectInfo.details.text}>
+                    <span>Stack:</span> <span>Ember, Semanitc UI</span>
+                  </section>
+                </li>
+
+                <li style={styles.subProjectInfo.details.item}>
+                  <img
+                    src={link('/assets/github-icon.svg')}
+                    style={styles.subProjectInfo.details.icon}
+                  />
+                  <section style={styles.subProjectInfo.details.text}>
+                    <span>Net Contributions:</span> <span style={{ color: '#42BD41'}}>+45,198</span> <span>/</span> <span style={{ color: '#E62A10'}}>-12,390</span>
+                  </section>
+                </li>
+
+                <li style={styles.subProjectInfo.details.item}>
+                  <img
+                    src={link('/assets/collaborator-icon.svg')}
+                    style={styles.subProjectInfo.details.icon}
+                  />
+                  <section style={styles.subProjectInfo.details.text}>
+                    <span>Key Role:</span> <span>Architechted application and implemented personalization process</span>
+                  </section>
+                </li>
+              </ul>
+
+              <section
+                className="description"
+                style={styles.subProjectInfo.description}
+              >
+                <p>
+                  Quisque mattis ante ante, sed pellentesque orci consectetur a. Donec ut suscipit eros.
+                  Pellentesque at elit elementum, pellentesque nulla eu, porttitor ipsum. Proin sollicitudin
+                  velit vel odio cursus pulvinar. Vestibulum et eros ex. Nam sit amet purus at tellus
+                  ullamcorper mattis non quis enim. Aenean eu convallis quam.
+                  <br /><br />
+                  Pellentesque ac mauris sit amet neque porta eleifend. Pellentesque non magna lorem. Nulla
+                  facilisi. Nunc sit amet facilisis sem, a dignissim lacus. Duis volutpat, odio eu posuere venenatis,
+                  diam sapien auctor neque, eu ullamcorper lacus lacus ac elit. In mollis dolor non pharetra volutpat.
+                  Sed nec ornare sem. Integer posuere dui vel aliquam viverra. Donec id tempus nisi.
+                  <br /><br />
+                  Praesent non pharetra sem, et blandit ex. Duis ultrices mattis justo, in feugiat neque venenatis quis.
+                  Nullam libero orci, eleifend quis ipsum sit amet, feugiat mattis eros. Donec bibendum hendrerit dolor
+                  in luctus. Maecenas efficitur, eros id tincidunt ultrices, elit urna molestie leo, nec dictum risus nisl
+                  in risus. Cras ligula sem, egestas quis egestas vel, iaculis et metus.
+                  <br /><br />
+                  Vestibulum dui tellus, convallis ac convallis ornare, luctus et tortor. Aenean non magna consectetur
+                  libero aliquet pulvinar. Fusce sed nisl erat. Sed vitae augue leo.
+                </p>
+              </section>
+            </section>
+
+            <section
+              className="screenshots"
+              style={styles.subProjectInfo.screenshots}
+            >
+              Screenshots
+            </section>
+          </div>
         </section>
       </div>
     );
@@ -235,7 +357,7 @@ const styles = {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 1,
+          flex: 2,
           borderRight: '2px solid #ecf0f1',
           borderTopLeftRadius: '6px',
           borderBottomLeftRadius: '6px',
@@ -255,7 +377,7 @@ const styles = {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
-          flex: 3,
+          flex: 5,
           padding: '.5em 1em',
           fontSize: '.8em',
           lineHeight: 1,
@@ -268,6 +390,79 @@ const styles = {
   subProjectInfo: {
     base: {
       flex: 3
+    },
+
+    header: {
+      base: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'flex-end',
+        paddingTop: '1em',
+        paddingBottom: '1em',
+        marginBottom: '2em',
+        borderBottom: '2px solid #eeeff1'
+      },
+
+      title: {
+        margin: 0,
+        fontSize: '1em',
+        fontWeight: 700,
+        lineHeight: 1,
+      },
+
+      pagination: {
+        item: {
+          color: '#6E768A',
+          fontSize: '.9em',
+          fontWeight: 300,
+          cursor: 'pointer',
+
+          first: {
+            marginRight: '2em'
+          }
+        }
+      }
+    },
+
+    main: {
+      display: 'flex'
+    },
+
+    body: {
+      flex: 1,
+      marginRight: '2em'
+    },
+
+    details: {
+      listStyle: 'none',
+      maxWidth: '80%',
+      margin: 0,
+      marginBottom: '4em',
+
+      item: {
+        display: 'flex',
+        alignItems: 'baseline',
+        marginBottom: '.5em',
+        color: '#6e768a',
+        fontSize: '.9em',
+        fontWeight: 300,
+        lineHeight: 1,
+      },
+
+      icon: {
+        width: '1em',
+        marginRight: '.5em'
+      }
+    },
+
+    description: {
+      fontWeight: 300,
+      color: '#6e768a',
+      whiteSpace: 'pre-line'
+    },
+
+    screenshots: {
+      flex: 1
     }
   }
 };
