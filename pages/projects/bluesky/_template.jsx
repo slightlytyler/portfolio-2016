@@ -8,7 +8,46 @@ import { link } from 'gatsby-helpers';
 
 @Radium
 export default class ProjectTemplate extends Component {
+  static defaultProps = {
+    subProjects: {
+      Bluesky: {
+        description: 'Flagship ordering site.'
+      },
+
+      Minisites: {
+        description: 'White labeled ordering site for business oriented greetings.'
+      },
+
+      Admin: {
+        description: 'CMS and product builder.'
+      },
+
+      API: {
+        description: 'Rails API, backend for all applications.'
+      },
+
+      EcardViewer: {
+        name: 'Ecard Viewer',
+        description: 'E greeting server and tracker.'
+      },
+
+      Analytics: {
+        description: 'Client facing analytics on a per order and per company basis.'
+      },
+
+      Portfolio: {
+        description: 'Marketing site for white labeled minisites.'
+      },
+
+      ProductViewer: {
+        name: 'Product Viewer',
+        description: `Product preview portion of the portfolio.`
+      }
+    }
+  };
   render() {
+    const { subProjects } = this.props;
+
     return (
       <div
         className="project"
@@ -16,7 +55,10 @@ export default class ProjectTemplate extends Component {
       >
         <section
           className="project-info"
-          style={styles.projectInfo.base}
+          style={[
+            styles.projectInfo.base,
+            styles.infoBase
+          ]}
         >
           <header style={styles.projectInfo.header.base}>
             <h2 style={[
@@ -56,40 +98,49 @@ export default class ProjectTemplate extends Component {
             className="sub-projects"
             style={styles.projectInfo.subProjects.base}
           >
-            <li
-              style={[
-                styles.projectInfo.subProjects.item,
-                styles.projectInfo.subProjects.item.active
-              ]}
-            >
-              <div
-                className="title"
-                style={[
-                  styles.projectInfo.subProjects.item.title,
-                  styles.projectInfo.subProjects.item.title.active,
-                  styles.projectInfo.subProjects.item.active
-                ]}
-              >
-                <span style={styles.projectInfo.subProjects.item.title.text}>
-                  Bluesky
-                </span>
-              </div>
+            {Object.keys(subProjects).map(subProjectKey => {
+              let project = subProjects[subProjectKey];
 
-              <div
-                className="description"
-                style={styles.projectInfo.subProjects.item.description}
-              >
-                <span>
-                  Flagship ordering site.
-                </span>
-              </div>
-            </li>
+              return (
+                <li
+                  style={[
+                    styles.projectInfo.subProjects.item,
+                    styles.projectInfo.subProjects.item.active
+                  ]}
+                >
+                  <div
+                    className="title"
+                    style={[
+                      styles.projectInfo.subProjects.item.title,
+                      styles.projectInfo.subProjects.item.title.active,
+                      styles.projectInfo.subProjects.item.active
+                    ]}
+                  >
+                    <span style={styles.projectInfo.subProjects.item.title.text}>
+                      {project.name || subProjectKey}
+                    </span>
+                  </div>
+
+                  <div
+                    className="description"
+                    style={styles.projectInfo.subProjects.item.description}
+                  >
+                    <span>
+                      {project.description}
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
           </ul>
         </section>
 
         <section
           className="sub-project-info"
-          style={styles.subProjectInfo.base}
+          style={[
+            styles.subProjectInfo.base,
+            styles.infoBase
+          ]}
         >
           <span>Something</span>
         </section>
@@ -104,14 +155,18 @@ const styles = {
     height: '100vh'
   },
 
+  infoBase: {
+    overflow: 'scroll',
+    height: 'calc(100% - 4.5em - 1px)',
+    paddingLeft: '2em',
+    paddingRight: '2em',
+    paddingTop: '3em',
+    marginTop: 'calc(4.5em + 1px)',
+  },
+
   projectInfo: {
     base: {
       flex: 1,
-      height: 'calc(100% - 4.5em - 1px)',
-      paddingLeft: '2em',
-      paddingRight: '2em',
-      paddingTop: '3em',
-      marginTop: 'calc(4.5em + 1px)',
       borderRight: '2px solid #eeeff1'
     },
 
@@ -166,9 +221,11 @@ const styles = {
 
       item: {
         display: 'flex',
-        minHeight: '3em',
+        minHeight: '3.428em',
+        marginBottom: '1em',
         border: '2px solid #ecf0f1',
         borderRadius: '6px',
+        cursor: 'pointer',
 
         active: {
           borderColor: '#6e768a',
