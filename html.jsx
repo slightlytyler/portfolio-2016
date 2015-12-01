@@ -24,11 +24,15 @@ export default class HTML extends React.Component {
           <meta name='viewport' content='width=device-width, initial-scale=1.0 maximum-scale=1.0' />
           <title>{title}</title>
           <link rel="shortcut icon" href={this.props.favicon} />
-          <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400' rel='stylesheet' type='text/css' />
+          <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css' />
           <TypographyStyle />
           <style dangerouslySetInnerHTML={{__html:
             `
-              * { line-height: 1.5; }
+              *,
+              h1, h2, h3, h4, h5, h6 {
+                color: #19243e;
+                line-height: 1.5;
+              }
               img { margin: 0; }
             `
           }} />
