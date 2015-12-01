@@ -32,7 +32,17 @@ export default class ProjectTemplate extends Component {
           libero aliquet pulvinar. Fusce sed nisl erat. Sed vitae augue leo.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['24,019', '10,771'],
-        role: 'Architechted application and implemented personalization process'
+        role: 'Architechted application and implemented personalization process',
+        projectDir: 'bluesky',
+        screenshots:[
+          'home',
+          'category',
+          'product-info',
+          'personalize',
+          'verse-select',
+          'extras',
+          'cart'
+        ]
       },
 
       Minisites: {
@@ -346,7 +356,29 @@ export default class ProjectTemplate extends Component {
               className="screenshots"
               style={styles.subProjectInfo.screenshots}
             >
-              Screenshots
+              <ul style={styles.subProjectInfo.screenshots.list}>
+                {activeSubProject.screenshots.map((screenshot, index) => {
+                  return (
+                    <li
+                      key={`screenshot:${activeSubProjectKey}-${screenshot}`}
+                      style={[
+                        styles.subProjectInfo.screenshots.item,
+                        {
+                          bottom: `-${index * 0.5}em`,
+                          zIndex: 100 - index,
+                          width: `${100 - (index * 5)}%`,
+                          opacity: `${(100 - (index * 10)) / 100}`
+                        }
+                      ]}
+                    >
+                      <img
+                        src={link(`/assets/projects/${activeSubProject.projectDir}/screenshots/${screenshot}.png`)}
+                        style={styles.subProjectInfo.screenshots.image}
+                      />
+                    </li>
+                  );
+                })}
+              </ul>
             </section>
           </div>
         </section>
@@ -569,7 +601,29 @@ const styles = {
     },
 
     screenshots: {
-      flex: 1
+      position: 'relative',
+      flex: 1,
+
+      list: {
+        listStyle: 'none',
+        position: 'fixed',
+        width: '25vw',
+        paddingBottom: '13.9625%',
+        margin: 0,
+      },
+
+      item: {
+        position: 'absolute',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      },
+
+      image: {
+        width: '100%',
+        border: '1px solid #979797',
+        borderRadius: '6px',
+        boxShadow: '0 0 2px rgba(0,0,0,0.2), 0 3px 5px rgba(0,0,0,0.24)'
+      }
     }
   }
 };
