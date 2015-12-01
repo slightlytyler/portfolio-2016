@@ -10,8 +10,10 @@ import HireMeHero from '../components/HireMeHero';
 import FeaturedProject from '../components/FeaturedProject';
 import WIWO from '../components/WIWO';
 
-export default class PageTemplate extends Component {
-  render() {
+export default React.createClass({
+  mixins: [State],
+
+  render: function() {
     const featuredProjects = {
       bluesky: {
         color: "#0d5685",
@@ -42,6 +44,10 @@ export default class PageTemplate extends Component {
         projectStyle: 'two'
       }
     };
+    const routes = this.getRoutes().map(function(route) {
+      return route.name;
+    });
+    const isHomePage = routes.indexOf('/') !== -1;
 
     return (
       <div
@@ -52,49 +58,53 @@ export default class PageTemplate extends Component {
       >
         <Header />
 
-        <div
-          ref="home"
-          style={{ height: '98vh' }}
-        >
-          <HireMeHero />
-
-          <ul
-            className="featured-projects"
-            style={{
-              display: 'flex',
-              height: '36%',
-              backgroundColor: 'light-grey',
-              listStyle: 'none',
-              margin: 0
-            }}
+        {!isHomePage ? <RouteHandler {...this.props}/> : (
+          <div
+            ref="home"
+            style={{ height: '98vh' }}
           >
-            {Object.keys(featuredProjects).map(projectKey => {
-              let project = featuredProjects[projectKey];
-              let {
-                color,
-                logoBaseline,
-                link,
-                linkText,
-                projectStyle
-              } = project;
+            <HireMeHero />
 
-              return (
-                <FeaturedProject
-                  key={`featuredProject:${projectKey}`}
-                  name={projectKey}
-                  color={color}
-                  logoBaseline={logoBaseline}
-                  link={link}
-                  linkText={linkText}
-                  projectStyle={projectStyle}
-                />
-              )
-            })}
-          </ul>
+            <ul
+              className="featured-projects"
+              style={{
+                display: 'flex',
+                height: '36%',
+                backgroundColor: 'light-grey',
+                listStyle: 'none',
+                margin: 0
+              }}
+            >
+              {Object.keys(featuredProjects).map(projectKey => {
+                let project = featuredProjects[projectKey];
+                let {
+                  color,
+                  logoBaseline,
+                  link,
+                  linkText,
+                  projectStyle
+                } = project;
 
-          <WIWO />
-        </div>
+                return (
+                  <FeaturedProject
+                    key={`featuredProject:${projectKey}`}
+                    name={projectKey}
+                    color={color}
+                    logoBaseline={logoBaseline}
+                    link={link}
+                    linkText={linkText}
+                    projectStyle={projectStyle}
+                  />
+                )
+              })}
+            </ul>
+
+            <WIWO />
+          </div>
+        )}
       </div>
     );
   }
-};
+});
+
+
