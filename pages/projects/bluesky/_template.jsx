@@ -11,42 +11,128 @@ export default class ProjectTemplate extends Component {
   static defaultProps = {
     subProjects: {
       Commerce: {
-        description: 'Flagship ordering site.'
+        shortDescription: 'Flagship ordering site.',
+        longDescription:
+          `Quisque mattis ante ante, sed pellentesque orci consectetur a. Donec ut suscipit eros.\
+          Pellentesque at elit elementum, pellentesque nulla eu, porttitor ipsum. Proin sollicitudin\
+          velit vel odio cursus pulvinar. Vestibulum et eros ex. Nam sit amet purus at tellus\
+          ullamcorper mattis non quis enim. Aenean eu convallis quam.\
+          \n
+          Pellentesque ac mauris sit amet neque porta eleifend. Pellentesque non magna lorem. Nulla\
+          facilisi. Nunc sit amet facilisis sem, a dignissim lacus. Duis volutpat, odio eu posuere venenatis,\
+          diam sapien auctor neque, eu ullamcorper lacus lacus ac elit. In mollis dolor non pharetra volutpat.\
+          Sed nec ornare sem. Integer posuere dui vel aliquam viverra. Donec id tempus nisi.\
+          \n
+          Praesent non pharetra sem, et blandit ex. Duis ultrices mattis justo, in feugiat neque venenatis quis.\
+          Nullam libero orci, eleifend quis ipsum sit amet, feugiat mattis eros. Donec bibendum hendrerit dolor\
+          in luctus. Maecenas efficitur, eros id tincidunt ultrices, elit urna molestie leo, nec dictum risus nisl\
+          in risus. Cras ligula sem, egestas quis egestas vel, iaculis et metus.\
+          \n
+          Vestibulum dui tellus, convallis ac convallis ornare, luctus et tortor. Aenean non magna consectetur\
+          libero aliquet pulvinar. Fusce sed nisl erat. Sed vitae augue leo.`,
+        stack: ['Ember', 'Semantic UI'],
+        contribution: ['24,019', '10,771'],
+        role: 'Architechted application and implemented personalization process'
       },
 
       Minisites: {
-        description: 'White labeled ordering site for business oriented greetings.'
+        shortDescription: 'White labeled ordering site for business oriented greetings.',
+        longDescription: `test1`,
+        stack: ['Ember', 'Semantic UI'],
+        contribution: ['41,048', '28,477'],
+        role: 'Architechted application and implemented personalization process for both print and e greetings'
       },
 
       Admin: {
-        description: 'CMS and product builder.'
+        shortDescription: 'CMS and product builder.',
+        longDescription: `test1`,
+        stack: ['Ember', 'Semantic UI'],
+        contribution: ['111,561', '56,062'],
+        role: 'Architechted application and was primary contributor to product builder flow'
       },
 
       API: {
-        description: 'Rails API, backend for all applications.'
+        shortDescription: 'Rails API, backend for all applications.',
+        longDescription: `test1`,
+        stack: ['Rails', 'Prince XML', 'Swagger', 'PostgreSQL', 'Redis'],
+        contribution: ['351', '248'],
+        role: 'Built views / styles for PDF generation and mailers'
       },
 
       EcardViewer: {
         name: 'Ecard Viewer',
-        description: 'E greeting server and tracker.'
+        shortDescription: 'E greeting server and tracker.',
+        longDescription: `test1`,
+        stack: ['Sinatra', 'Wistia API'],
+        contribution: ['1,676', '921'],
+        role: 'Built video player and card layout system'
       },
 
       Analytics: {
-        description: 'Client facing analytics on a per order and per company basis.'
+        shortDescription: 'Client facing analytics on a per order and per company basis.',
+        longDescription: `test1`,
+        stack: ['Ember', 'Semantic UI'],
+        contribution: ['1,901', '2,431'],
+        role: 'Built soft authentication and provided base components / styles'
       },
 
       Portfolio: {
-        description: 'Marketing site for white labeled minisites.'
+        shortDescription: 'Marketing site for white labeled minisites.',
+        longDescription: `test1`,
+        stack: ['Jekyll', 'jekyll-assets', 'Skrollr', 'smoothState.js'],
+        contribution: ['5,314', '1,410'],
+        role: 'Structured project, built layouts / styles, implemented parallax scrolling using Skrollr.'
       },
 
       ProductViewer: {
         name: 'Product Viewer',
-        description: `Product preview portion of the portfolio.`
+        shortDescription: `Product preview portion of the portfolio.`,
+        longDescription: `test1`,
+        stack: ['Ember', 'Semantic UI', 'Soundcloud API'],
+        contribution: ['1,843', '869'],
+        role: 'Provided base components / styles and integrated Soundcloud API'
       }
     }
   };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      activeSubProjectKey: Object.keys(props.subProjects)[0]
+    }
+  }
+
+  setActiveProject(key) {
+    this.setState({
+      activeSubProjectKey: key
+    });
+  }
+
+  nextSubProject() {
+    const { subProjects } = this.props;
+    const keys = Object.keys(subProjects);
+    const { activeSubProjectKey } = this.state;
+    const currentIndex = keys.indexOf(activeSubProjectKey);
+    const next = keys[currentIndex + 1];
+
+    return next;
+  }
+
+  prevSubProject() {
+    const { subProjects } = this.props;
+    const keys = Object.keys(subProjects);
+    const { activeSubProjectKey } = this.state;
+    const currentIndex = keys.indexOf(activeSubProjectKey);
+    const prev = keys[currentIndex - 1];
+
+    return prev;
+  }
+
   render() {
     const { subProjects } = this.props;
+    const { activeSubProjectKey } = this.state;
+    const activeSubProject = subProjects[activeSubProjectKey];
 
     return (
       <div
@@ -100,20 +186,23 @@ export default class ProjectTemplate extends Component {
           >
             {Object.keys(subProjects).map(subProjectKey => {
               let project = subProjects[subProjectKey];
+              let isActive = subProjectKey === activeSubProjectKey;
 
               return (
                 <li
+                  key={subProjectKey}
                   style={[
                     styles.projectInfo.subProjects.item,
-                    styles.projectInfo.subProjects.item.active
+                    isActive && styles.projectInfo.subProjects.item.active
                   ]}
+                  onClick={() => this.setActiveProject(subProjectKey)}
                 >
                   <div
                     className="title"
                     style={[
                       styles.projectInfo.subProjects.item.title,
-                      styles.projectInfo.subProjects.item.title.active,
-                      styles.projectInfo.subProjects.item.active
+                      isActive && styles.projectInfo.subProjects.item.title.active,
+                      isActive && styles.projectInfo.subProjects.item.active
                     ]}
                   >
                     <span style={styles.projectInfo.subProjects.item.title.text}>
@@ -126,7 +215,7 @@ export default class ProjectTemplate extends Component {
                     style={styles.projectInfo.subProjects.item.description}
                   >
                     <span>
-                      {project.description}
+                      {project.shortDescription}
                     </span>
                   </div>
                 </li>
@@ -148,22 +237,25 @@ export default class ProjectTemplate extends Component {
             <h3
               style={styles.subProjectInfo.header.title}
             >
-              Commerce
+              {activeSubProject.name || activeSubProjectKey}
             </h3>
 
             <section className="pagination">
               <span
+                key="prev"
+                onClick={() =>
+                  this.prevSubProject() && this.setActiveProject(this.prevSubProject())
+                }
                 style={[
                   styles.subProjectInfo.header.pagination.item,
-                  styles.subProjectInfo.header.pagination.item.first
+                  styles.subProjectInfo.header.pagination.item.first,
+                  !this.prevSubProject() && styles.subProjectInfo.header.pagination.item.disabled
                 ]}
               >
                 <span
                   style={{
                     marginRight: '0.25em',
-                    fontSize: '150%',
-                    lineHeight: 0,
-                    verticalAlign: '-.05em'
+                    ...styles.subProjectInfo.header.pagination.item.caret
                   }}
                 >
                   &lsaquo;
@@ -172,15 +264,20 @@ export default class ProjectTemplate extends Component {
               </span>
 
               <span
-                style={styles.subProjectInfo.header.pagination.item}
+                key="next"
+                onClick={() =>
+                  this.nextSubProject() && this.setActiveProject(this.nextSubProject())
+                }
+                style={[
+                  styles.subProjectInfo.header.pagination.item,
+                  !this.nextSubProject() && styles.subProjectInfo.header.pagination.item.disabled
+                ]}
               >
                 Next&nbsp;
                 <span
                   style={{
                     marginLeft: '0.25em',
-                    fontSize: '150%',
-                    lineHeight: 0,
-                    verticalAlign: '-.05em'
+                    ...styles.subProjectInfo.header.pagination.item.caret
                   }}
                 >
                   &rsaquo;
@@ -207,7 +304,8 @@ export default class ProjectTemplate extends Component {
                     style={styles.subProjectInfo.details.icon}
                   />
                   <section style={styles.subProjectInfo.details.text}>
-                    <span>Stack:</span> <span>Ember, Semanitc UI</span>
+                    <span>Stack:</span>&nbsp;&nbsp;
+                    <span>{activeSubProject.stack.join(', ')}</span>
                   </section>
                 </li>
 
@@ -217,7 +315,8 @@ export default class ProjectTemplate extends Component {
                     style={styles.subProjectInfo.details.icon}
                   />
                   <section style={styles.subProjectInfo.details.text}>
-                    <span>Net Contributions:</span> <span style={{ color: '#42BD41'}}>+45,198</span> <span>/</span> <span style={{ color: '#E62A10'}}>-12,390</span>
+                    <span>Net Contributions:</span>&nbsp;&nbsp;
+                    <span style={{ color: '#42BD41'}}>{activeSubProject.contribution[0]} ++</span> <span>/</span> <span style={{ color: '#E62A10'}}>{activeSubProject.contribution[1]} --</span>
                   </section>
                 </li>
 
@@ -227,7 +326,8 @@ export default class ProjectTemplate extends Component {
                     style={styles.subProjectInfo.details.icon}
                   />
                   <section style={styles.subProjectInfo.details.text}>
-                    <span>Key Role:</span> <span>Architechted application and implemented personalization process</span>
+                    <span>Key Role:</span>&nbsp;&nbsp;
+                    <span>{activeSubProject.role}</span>
                   </section>
                 </li>
               </ul>
@@ -237,23 +337,7 @@ export default class ProjectTemplate extends Component {
                 style={styles.subProjectInfo.description}
               >
                 <p>
-                  Quisque mattis ante ante, sed pellentesque orci consectetur a. Donec ut suscipit eros.
-                  Pellentesque at elit elementum, pellentesque nulla eu, porttitor ipsum. Proin sollicitudin
-                  velit vel odio cursus pulvinar. Vestibulum et eros ex. Nam sit amet purus at tellus
-                  ullamcorper mattis non quis enim. Aenean eu convallis quam.
-                  <br /><br />
-                  Pellentesque ac mauris sit amet neque porta eleifend. Pellentesque non magna lorem. Nulla
-                  facilisi. Nunc sit amet facilisis sem, a dignissim lacus. Duis volutpat, odio eu posuere venenatis,
-                  diam sapien auctor neque, eu ullamcorper lacus lacus ac elit. In mollis dolor non pharetra volutpat.
-                  Sed nec ornare sem. Integer posuere dui vel aliquam viverra. Donec id tempus nisi.
-                  <br /><br />
-                  Praesent non pharetra sem, et blandit ex. Duis ultrices mattis justo, in feugiat neque venenatis quis.
-                  Nullam libero orci, eleifend quis ipsum sit amet, feugiat mattis eros. Donec bibendum hendrerit dolor
-                  in luctus. Maecenas efficitur, eros id tincidunt ultrices, elit urna molestie leo, nec dictum risus nisl
-                  in risus. Cras ligula sem, egestas quis egestas vel, iaculis et metus.
-                  <br /><br />
-                  Vestibulum dui tellus, convallis ac convallis ornare, luctus et tortor. Aenean non magna consectetur
-                  libero aliquet pulvinar. Fusce sed nisl erat. Sed vitae augue leo.
+                  {activeSubProject.longDescription}
                 </p>
               </section>
             </section>
@@ -303,6 +387,7 @@ const styles = {
         fontSize: '2em',
         fontWeight: 700,
         lineHeight: 1,
+        color: '#19243E'
       },
 
       description: {
@@ -332,7 +417,8 @@ const styles = {
 
     description: {
       fontSize: '1em',
-      fontWeight: 300
+      fontWeight: 300,
+      color: '#19243E'
     },
 
     subProjects: {
@@ -345,7 +431,9 @@ const styles = {
         display: 'flex',
         minHeight: '3.428em',
         marginBottom: '1em',
-        border: '2px solid #ecf0f1',
+        borderWidth: '2px',
+        borderStyle: 'solid',
+        borderColor: '#ecf0f1',
         borderRadius: '6px',
         cursor: 'pointer',
 
@@ -358,7 +446,10 @@ const styles = {
           alignItems: 'center',
           justifyContent: 'center',
           flex: 2,
-          borderRight: '2px solid #ecf0f1',
+          borderWidth: 0,
+          borderRightWidth: '2px',
+          borderStyle: 'solid',
+          borderColor: '#ecf0f1',
           borderTopLeftRadius: '6px',
           borderBottomLeftRadius: '6px',
 
@@ -381,7 +472,8 @@ const styles = {
           padding: '.5em 1em',
           fontSize: '.8em',
           lineHeight: 1,
-          fontStyle: 'italic'
+          fontStyle: 'italic',
+          color: '#6e768a',
         }
       }
     }
@@ -408,6 +500,7 @@ const styles = {
         fontSize: '1em',
         fontWeight: 700,
         lineHeight: 1,
+        color: '#19243E'
       },
 
       pagination: {
@@ -416,9 +509,23 @@ const styles = {
           fontSize: '.9em',
           fontWeight: 300,
           cursor: 'pointer',
+          userSelect: 'none',
+          opacity: 1,
 
           first: {
             marginRight: '2em'
+          },
+
+          disabled: {
+            color: '#eeeff1',
+            pointerEvents: 'none',
+            cursor: 'default',
+          },
+
+          caret: {
+            fontSize: '150%',
+            lineHeight: 0,
+            verticalAlign: '-.05em',
           }
         }
       }
@@ -446,7 +553,7 @@ const styles = {
         color: '#6e768a',
         fontSize: '.9em',
         fontWeight: 300,
-        lineHeight: 1,
+        lineHeight: 1
       },
 
       icon: {
