@@ -117,15 +117,22 @@ export default class ProjectTemplate extends Component {
       },
 
       EcardViewer: {
+        dirName: 'ecard-viewer',
         name: 'Ecard Viewer',
         shortDescription: 'E greeting server and tracker.',
-        longDescription: `test1`,
+        longDescription:
+            `Ecard Viewer handled the delivery of animated e greetings. We used Wistia for video hosting and controlled playback of\
+            the cards using their Javascript API.
+
+            I handled integration with Wistia as well as built views and styles for the card layout system.`,
         stack: ['Sinatra', 'Wistia API'],
         contribution: ['1,676', '921'],
         role: 'Built video player and card layout system',
         link: 'https://gcc4-ecard-viewer-production.herokuapp.com/previews/gy4Bezn/animated',
         linkText: 'Demo card',
-        screenshots: []
+        screenshots: [
+          'video'
+        ]
       },
 
       Analytics: {
@@ -148,6 +155,7 @@ export default class ProjectTemplate extends Component {
       },
 
       ProductViewer: {
+        dirName: 'product-viewer',
         name: 'Product Viewer',
         shortDescription: `Product preview portion of the portfolio.`,
         longDescription: `test1`,
@@ -484,7 +492,7 @@ export default class ProjectTemplate extends Component {
                         style={styles.subProjectInfo.screenshots.item}
                       >
                         <ImageLoader
-                          src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
+                          src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProject.dirName || activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
                           aspectRatio={1.79}
                           style={styles.subProjectInfo.screenshots.image}
                         />
