@@ -80,11 +80,26 @@ export default class ProjectTemplate extends Component {
 
       Admin: {
         shortDescription: 'CMS and product builder.',
-        longDescription: `test1`,
+        longDescription:
+            `Admin is the CMS and product builder application used by the content creators and administration\
+            of GCC. Admin core features allows users to build printed and e greetings from their raw assets,\
+            control available products and track inventory, generate and customize minisites, and oversee orders.
+
+            Admin was the largest front end application we built, only smaller than the API. I contributed heavily\
+            to nearly every facet of the app in addition to being the primary contributor the product builder flows.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['111,561', '56,062'],
         role: 'Scaffolded application and was primary contributor to product builder flow',
-        screenshots: []
+        screenshots: [
+          'card-list',
+          'card-index',
+          'size',
+          'surface',
+          'verses',
+          'company-index',
+          'company-cards',
+          'stats'
+        ]
       },
 
       API: {
