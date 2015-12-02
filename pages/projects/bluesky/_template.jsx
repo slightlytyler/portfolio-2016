@@ -11,30 +11,34 @@ import ImageLoader from '../../../components/ImageLoader';
 @Radium
 export default class ProjectTemplate extends Component {
   static defaultProps = {
+    project: {
+      name: 'Bluesky',
+      shortDescription: 'Application Suite',
+        longDescription:
+          `Bluesky is the public face of Greeting Card Collection, the industry\
+          leader in business to client greeting cards and e cards. I worked with a\
+          small team to rebuild their monolithic Rails 3 application into a suite of\
+          modular apps focused on maintainability.`,
+      image: link('/assets/projects/bluesky/screenshots/home.png')
+    },
+
     subProjects: {
       Commerce: {
         shortDescription: 'Flagship ordering site.',
         longDescription:
-          `Quisque mattis ante ante, sed pellentesque orci consectetur a. Donec ut suscipit eros.\
-          Pellentesque at elit elementum, pellentesque nulla eu, porttitor ipsum. Proin sollicitudin\
-          velit vel odio cursus pulvinar. Vestibulum et eros ex. Nam sit amet purus at tellus\
-          ullamcorper mattis non quis enim. Aenean eu convallis quam.\
-          \n
-          Pellentesque ac mauris sit amet neque porta eleifend. Pellentesque non magna lorem. Nulla\
-          facilisi. Nunc sit amet facilisis sem, a dignissim lacus. Duis volutpat, odio eu posuere venenatis,\
-          diam sapien auctor neque, eu ullamcorper lacus lacus ac elit. In mollis dolor non pharetra volutpat.\
-          Sed nec ornare sem. Integer posuere dui vel aliquam viverra. Donec id tempus nisi.\
-          \n
-          Praesent non pharetra sem, et blandit ex. Duis ultrices mattis justo, in feugiat neque venenatis quis.\
-          Nullam libero orci, eleifend quis ipsum sit amet, feugiat mattis eros. Donec bibendum hendrerit dolor\
-          in luctus. Maecenas efficitur, eros id tincidunt ultrices, elit urna molestie leo, nec dictum risus nisl\
-          in risus. Cras ligula sem, egestas quis egestas vel, iaculis et metus.\
-          \n
-          Vestibulum dui tellus, convallis ac convallis ornare, luctus et tortor. Aenean non magna consectetur\
-          libero aliquet pulvinar. Fusce sed nisl erat. Sed vitae augue leo.`,
-        stack: ['Ember', 'Semantic UI'],
+            `Bluesky (project name 'commerce') is the flagship ordering site and public facing product for GCC.\
+            Serving primarily US customers Bluesky saw marked improvement in sales over past years where the\
+            the public facing site failed to gain traction.
+
+            To compete with industry leaders we completely overhauled the personalization process. Previously\
+            the process was hindered by the limitations of server rendered applications, but using Ember we were\
+            able to implement a process that was feature rich, inutitive, and fast.
+
+            I designed the spec for the personalization process as well as devloped the components used.\
+            In addition I scaffolded the application and built much of the boilerplate used across the Ember apps.`,
+          stack: ['Ember', 'Semantic UI'],
         contribution: ['24,019', '10,771'],
-        role: 'Architechted application and implemented personalization process',
+        role: 'Scaffolded application and implemented personalization process',
         link: 'https://www.blueskycards.com',
         projectDir: 'bluesky',
         screenshots:[
@@ -49,7 +53,7 @@ export default class ProjectTemplate extends Component {
       },
 
       Minisites: {
-        shortDescription: 'White labeled ordering site for business oriented greetings.',
+        shortDescription: 'White labeled ordering site for business to client greetings.',
         longDescription: `test1`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['41,048', '28,477'],
@@ -155,7 +159,7 @@ export default class ProjectTemplate extends Component {
   }
 
   render() {
-    const { subProjects } = this.props;
+    const { project, subProjects } = this.props;
     const { activeSubProjectKey } = this.state;
     const activeSubProject = subProjects[activeSubProjectKey];
 
@@ -177,10 +181,10 @@ export default class ProjectTemplate extends Component {
               styles.projectInfo.header.title.active
             ]}
           >
-              Bluesky
+              {project.name}
             </h2>
             <span style={styles.projectInfo.header.description}>
-              Application Suite
+              {project.shortDescription}
             </span>
           </header>
 
@@ -189,7 +193,7 @@ export default class ProjectTemplate extends Component {
             style={styles.projectInfo.image.container}
           >
             <ImageLoader
-              src={link('/assets/projects/bluesky/screenshots/home.png')}
+              src={project.image}
               aspectRatio={1.79}
               style={styles.projectInfo.image.base}
             />
@@ -200,9 +204,7 @@ export default class ProjectTemplate extends Component {
             style={styles.projectInfo.description}
           >
             <p>
-              There are many variations of passages of Lorem Ipsum available,
-              but the majority have suffered alteration in some form, by injected
-              humour, or randomised words which don't look even slightly believable.
+              {project.longDescription}
             </p>
           </div>
 
@@ -502,7 +504,7 @@ const styles = {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          flex: 2,
+          flex: 4,
           borderWidth: 0,
           borderRightWidth: '2px',
           borderStyle: 'solid',
@@ -514,6 +516,7 @@ const styles = {
             textAlign: 'center',
             fontWeight: 400,
             color: '#6e768a',
+            lineHeight: 1,
           },
 
           active: {
@@ -525,7 +528,7 @@ const styles = {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'flex-start',
-          flex: 5,
+          flex: 9,
           padding: '.5em 1em',
           fontSize: '.8em',
           lineHeight: 1,
