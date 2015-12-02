@@ -87,7 +87,8 @@ export default class FeaturedProject extends Component {
                 { color: `${color || 'white'}` }
               ]}
             >
-              {linkText}
+              <span>{linkText}</span>
+              <span style={styles.link.arrow}>&rsaquo;</span>
             </span>
           </div>
         )}
@@ -124,7 +125,14 @@ const styles = {
 
   link: {
     fontWeight: '300',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+
+    arrow: {
+      marginLeft: '.25em',
+      fontSize: '200%',
+      lineHeight: 0,
+      verticalAlign: '-.125em',
+    }
   },
 
   styleOne: {
