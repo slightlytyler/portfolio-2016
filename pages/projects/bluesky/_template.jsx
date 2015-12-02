@@ -33,6 +33,7 @@ export default class ProjectTemplate extends Component {
         stack: ['Ember', 'Semantic UI'],
         contribution: ['24,019', '10,771'],
         role: 'Architechted application and implemented personalization process',
+        link: 'https://www.blueskycards.com',
         projectDir: 'bluesky',
         screenshots:[
           'home',
@@ -50,7 +51,9 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['41,048', '28,477'],
-        role: 'Architechted application and implemented personalization process for both print and e greetings'
+        role: 'Scaffolded application and implemented personalization process for both print and e greetings',
+        link: 'https://demo1.greetingcardcollection.com',
+        screenshots: []
       },
 
       Admin: {
@@ -58,7 +61,8 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['111,561', '56,062'],
-        role: 'Architechted application and was primary contributor to product builder flow'
+        role: 'Scaffolded application and was primary contributor to product builder flow',
+        screenshots: []
       },
 
       API: {
@@ -66,7 +70,8 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Rails', 'Prince XML', 'Swagger', 'PostgreSQL', 'Redis'],
         contribution: ['351', '248'],
-        role: 'Built views / styles for PDF generation and mailers'
+        role: 'Built views / styles for PDF generation and mailers',
+        screenshots: []
       },
 
       EcardViewer: {
@@ -75,7 +80,10 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Sinatra', 'Wistia API'],
         contribution: ['1,676', '921'],
-        role: 'Built video player and card layout system'
+        role: 'Built video player and card layout system',
+        link: 'https://gcc4-ecard-viewer-production.herokuapp.com/previews/gy4Bezn/animated',
+        linkText: 'Demo card',
+        screenshots: []
       },
 
       Analytics: {
@@ -83,7 +91,8 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['1,901', '2,431'],
-        role: 'Built soft authentication and provided base components / styles'
+        role: 'Built soft authentication and provided base components / styles',
+        screenshots: []
       },
 
       Portfolio: {
@@ -91,7 +100,9 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Jekyll', 'jekyll-assets', 'Skrollr', 'smoothState.js'],
         contribution: ['5,314', '1,410'],
-        role: 'Structured project, built layouts / styles, implemented parallax scrolling using Skrollr.'
+        role: 'Scaffolded project, built layouts / styles, implemented parallax scrolling using Skrollr.',
+        link: 'http://www.gccportfolio.com',
+        screenshots: []
       },
 
       ProductViewer: {
@@ -100,7 +111,9 @@ export default class ProjectTemplate extends Component {
         longDescription: `test1`,
         stack: ['Ember', 'Semantic UI', 'Soundcloud API'],
         contribution: ['1,843', '869'],
-        role: 'Provided base components / styles and integrated Soundcloud API'
+        role: 'Provided base components / styles and integrated Soundcloud API',
+        link: 'http://products.gccportfolio.com',
+        screenshots: []
       }
     }
   };
@@ -340,6 +353,22 @@ export default class ProjectTemplate extends Component {
                     <span>{activeSubProject.role}</span>
                   </section>
                 </li>
+
+                <li style={styles.subProjectInfo.details.item}>
+                  <img
+                    src={link('/assets/domain-icon.svg')}
+                    style={styles.subProjectInfo.details.icon}
+                  />
+                  <section style={styles.subProjectInfo.details.text}>
+                    <span>Live Site:</span>&nbsp;&nbsp;
+                    <span>
+                    {activeSubProject.link ?
+                      <a href={activeSubProject.link}>{activeSubProject.linkText || activeSubProject.link}</a> :
+                      'Not available'
+                    }
+                    </span>
+                  </section>
+                </li>
               </ul>
 
               <section
@@ -361,15 +390,7 @@ export default class ProjectTemplate extends Component {
                   return (
                     <li
                       key={`screenshot:${activeSubProjectKey}-${screenshot}`}
-                      style={[
-                        styles.subProjectInfo.screenshots.item,
-                        {
-                          bottom: `-${index * 0.5}em`,
-                          zIndex: 100 - index,
-                          width: `${100 - (index * 5)}%`,
-                          opacity: `${(100 - (index * 10)) / 100}`
-                        }
-                      ]}
+                      style={styles.subProjectInfo.screenshots.item}
                     >
                       <img
                         src={link(`/assets/projects/${activeSubProject.projectDir}/screenshots/${screenshot}.png`)}
@@ -394,7 +415,6 @@ const styles = {
   },
 
   infoBase: {
-    overflow: 'scroll',
     height: 'calc(100% - 4.5em - 1px)',
     paddingLeft: '2em',
     paddingRight: '2em',
@@ -405,7 +425,8 @@ const styles = {
   projectInfo: {
     base: {
       flex: 1,
-      borderRight: '2px solid #eeeff1'
+      borderRight: '2px solid #eeeff1',
+      overflow: 'scroll',
     },
 
     header: {
@@ -513,7 +534,8 @@ const styles = {
 
   subProjectInfo: {
     base: {
-      flex: 3
+      flex: 3,
+      overflow: 'scroll'
     },
 
     header: {
@@ -523,7 +545,6 @@ const styles = {
         alignItems: 'flex-end',
         paddingTop: '1em',
         paddingBottom: '1em',
-        marginBottom: '2em',
         borderBottom: '2px solid #eeeff1'
       },
 
@@ -564,12 +585,19 @@ const styles = {
     },
 
     main: {
-      display: 'flex'
+      display: 'flex',
+      height: 'calc(100% - 3.5em - 1px)',
     },
 
     body: {
+      position: 'relative',
       flex: 1,
-      marginRight: '2em'
+      overflow: 'scroll',
+      height: '100%',
+      paddingRight: '2em',
+      paddingTop: '2em',
+      marginRight: '2em',
+      borderRight: '1px solid #eeeff1'
     },
 
     details: {
@@ -603,26 +631,22 @@ const styles = {
     screenshots: {
       position: 'relative',
       flex: 1,
+      overflow: 'scroll',
+      paddingTop: '2em',
+      paddingBottom: '1em',
 
       list: {
         listStyle: 'none',
-        position: 'fixed',
-        width: '25vw',
-        paddingBottom: '13.9625%',
+        width: '100%',
         margin: 0,
       },
 
       item: {
-        position: 'absolute',
-        left: '50%',
-        transform: 'translateX(-50%)',
       },
 
       image: {
         width: '100%',
-        border: '1px solid #979797',
-        borderRadius: '6px',
-        boxShadow: '0 0 2px rgba(0,0,0,0.2), 0 3px 5px rgba(0,0,0,0.24)'
+        border: '1px solid rgba(0,0,0,0.2)',
       }
     }
   }
