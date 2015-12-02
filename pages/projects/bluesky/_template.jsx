@@ -26,7 +26,7 @@ export default class ProjectTemplate extends Component {
       Commerce: {
         shortDescription: 'Flagship ordering site.',
         longDescription:
-            `Bluesky (project name 'commerce') is the flagship ordering site and public facing product for GCC.\
+            `Bluesky (project name 'Commerce') is the flagship ordering site and public facing product for GCC.\
             Serving primarily US customers Bluesky saw marked improvement in sales over past years where the\
             the public facing site failed to gain traction.
 
@@ -194,8 +194,15 @@ export default class ProjectTemplate extends Component {
           >
             <ImageLoader
               src={project.image}
-              aspectRatio={1.79}
+              aspectRatio={1.4}
               style={styles.projectInfo.image.base}
+              containerStyle={{
+                position: 'absolute',
+                left: '-6em',
+                top: 0,
+                width: 'calc(100% + 6em)',
+                boxShadow: '0px 12px 24px 0px rgba(0,0,0,0.24)',
+              }}
             />
           </div>
 
