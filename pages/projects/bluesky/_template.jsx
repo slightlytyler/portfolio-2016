@@ -6,6 +6,8 @@ import { RouteHandler } from 'react-router';
 
 import { link } from 'gatsby-helpers';
 
+import ImageLoader from '../../../components/ImageLoader';
+
 @Radium
 export default class ProjectTemplate extends Component {
   static defaultProps = {
@@ -186,8 +188,9 @@ export default class ProjectTemplate extends Component {
             className="project-image"
             style={styles.projectInfo.image.container}
           >
-            <img
+            <ImageLoader
               src={link('/assets/projects/bluesky/screenshots/home.png')}
+              aspectRatio={1.79}
               style={styles.projectInfo.image.base}
             />
           </div>
@@ -362,10 +365,10 @@ export default class ProjectTemplate extends Component {
                   <section style={styles.subProjectInfo.details.text}>
                     <span>Live Site:</span>&nbsp;&nbsp;
                     <span>
-                    {activeSubProject.link ?
-                      <a href={activeSubProject.link}>{activeSubProject.linkText || activeSubProject.link}</a> :
-                      'Not available'
-                    }
+                      {activeSubProject.link ?
+                        <a href={activeSubProject.link}>{activeSubProject.linkText || activeSubProject.link}</a> :
+                        'Not available'
+                      }
                     </span>
                   </section>
                 </li>
@@ -392,8 +395,9 @@ export default class ProjectTemplate extends Component {
                       key={`screenshot:${activeSubProjectKey}-${screenshot}`}
                       style={styles.subProjectInfo.screenshots.item}
                     >
-                      <img
+                      <ImageLoader
                         src={link(`/assets/projects/${activeSubProject.projectDir}/screenshots/${screenshot}.png`)}
+                        aspectRatio={1.79}
                         style={styles.subProjectInfo.screenshots.image}
                       />
                     </li>
@@ -642,6 +646,7 @@ const styles = {
       },
 
       item: {
+        marginBottom: '1em'
       },
 
       image: {
