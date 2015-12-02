@@ -19,7 +19,7 @@ export default class ProjectTemplate extends Component {
           leader in business to client greeting cards and e cards. I worked with a\
           small team to rebuild their monolithic Rails 3 application into a suite of\
           modular apps focused on maintainability.`,
-      image: link('/assets/projects/bluesky/screenshots/home.png')
+      image: link('/assets/projects/bluesky/sub-projects/commerce/home.png')
     },
 
     subProjects: {
@@ -40,7 +40,6 @@ export default class ProjectTemplate extends Component {
         contribution: ['24,019', '10,771'],
         role: 'Scaffolded application and implemented personalization process',
         link: 'https://www.blueskycards.com',
-        projectDir: 'bluesky',
         screenshots:[
           'home',
           'category',
@@ -54,12 +53,29 @@ export default class ProjectTemplate extends Component {
 
       Minisites: {
         shortDescription: 'White labeled ordering site for business to client greetings.',
-        longDescription: `test1`,
+        longDescription:
+            `Minisites is GCC's primary product offering a variety of custom printed and e greetings.\
+             Developed to be white labelable by business clients, each site has it's own subdomain and\
+             branding. In addition to visual customization each client has a unique set of offerings\
+             and personalization options.
+
+            I designed the spec for the personalization process as well as devloped the components used.\
+            In addition I scaffolded the application and built much of the boilerplate used across the Ember apps.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['41,048', '28,477'],
-        role: 'Scaffolded application and implemented personalization process for both print and e greetings',
+        role: 'Scaffolded application, implemented personalization process and contact handling',
         link: 'https://demo1.greetingcardcollection.com',
-        screenshots: []
+        screenshots: [
+          'printed-home',
+          'card-detail',
+          'printed-personalization',
+          'approve-artwork',
+          'shipping',
+          'cart',
+          'ecard-home',
+          'ecard-personalization',
+          'ecard-send'
+        ]
       },
 
       Admin: {
@@ -387,7 +403,7 @@ export default class ProjectTemplate extends Component {
                 className="description"
                 style={styles.subProjectInfo.description}
               >
-                <p>
+                <p style={styles.subProjectInfo.description.text}>
                   {activeSubProject.longDescription}
                 </p>
               </section>
@@ -405,7 +421,7 @@ export default class ProjectTemplate extends Component {
                       style={styles.subProjectInfo.screenshots.item}
                     >
                       <ImageLoader
-                        src={link(`/assets/projects/${activeSubProject.projectDir}/screenshots/${screenshot}.png`)}
+                        src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
                         aspectRatio={1.79}
                         style={styles.subProjectInfo.screenshots.image}
                       />
@@ -639,7 +655,11 @@ const styles = {
     description: {
       fontWeight: 300,
       color: '#6e768a',
-      whiteSpace: 'pre-line'
+      whiteSpace: 'pre-line',
+
+      text: {
+        marginBottom: '1em'
+      }
     },
 
     screenshots: {
