@@ -19,6 +19,8 @@ export default class ProjectTemplate extends Component {
           leader in business to client greeting cards and e cards. I worked with a\
           small team to rebuild their monolithic Rails 3 application into a suite of\
           modular apps focused on maintainability.`,
+      owner: 'Greeting Card Collection',
+      agency: 'Deep Space Robots',
       image: link('/assets/projects/bluesky/sub-projects/commerce/home.png')
     },
 
@@ -104,11 +106,14 @@ export default class ProjectTemplate extends Component {
 
       API: {
         shortDescription: 'Rails API, backend for all applications.',
-        longDescription: `test1`,
+        longDescription:
+            `The API was built using Rails 4 and documented using Swagger. For PDF generation we used Prince XML.
+
+            I contributed to the API initially through input on the spec of various portions (primarily product\
+            construction and personalization). In addition I built the views and styles for PDF generation and mailers.`,
         stack: ['Rails', 'Prince XML', 'Swagger', 'PostgreSQL', 'Redis'],
         contribution: ['351', '248'],
-        role: 'Built views / styles for PDF generation and mailers',
-        screenshots: []
+        role: 'Built views / styles for PDF generation and mailers'
       },
 
       EcardViewer: {
@@ -164,6 +169,12 @@ export default class ProjectTemplate extends Component {
   }
 
   setActiveProject(key) {
+    // Scroll top
+    const { body, screenshots } = this.refs;
+    body.scrollTop = 0;
+    screenshots.scrollTop = 0;
+
+    // Set state5
     this.setState({
       activeSubProjectKey: key
     });
@@ -235,6 +246,37 @@ export default class ProjectTemplate extends Component {
                 boxShadow: '0px 12px 24px 0px rgba(0,0,0,0.24)',
               }}
             />
+          </div>
+
+          <div className="details">
+            <ul style={[
+              styles.details.list,
+              styles.projectInfo.details.list
+            ]}>
+              <li style={styles.details.item}>
+                <img
+                  src={link('/assets/project-owner-icon.svg')}
+                  style={styles.details.icon}
+                />
+                <section style={styles.details.text}>
+                  <span>Project Owner:</span>&nbsp;&nbsp;
+                  <span>{project.owner}</span>
+                </section>
+              </li>
+
+              {project.agency && (
+                <li style={styles.details.item}>
+                  <img
+                    src={link('/assets/agency-icon.svg')}
+                    style={styles.details.icon}
+                  />
+                  <section style={styles.details.text}>
+                    <span>Agency:</span>&nbsp;&nbsp;
+                    <span>Deep Space Robots</span>
+                  </section>
+                </li>
+              )}
+            </ul>
           </div>
 
           <div
@@ -357,52 +399,56 @@ export default class ProjectTemplate extends Component {
             style={styles.subProjectInfo.main}
           >
             <section
+              ref="body"
               className="body"
               style={styles.subProjectInfo.body}
             >
               <ul
                 className="details"
-                style={styles.subProjectInfo.details}
+                style={[
+                  styles.details.list,
+                  styles.subProjectInfo.details.list,
+                ]}
               >
-                <li style={styles.subProjectInfo.details.item}>
+                <li style={styles.details.item}>
                   <img
                     src={link('/assets/stack-icon.svg')}
-                    style={styles.subProjectInfo.details.icon}
+                    style={styles.details.icon}
                   />
-                  <section style={styles.subProjectInfo.details.text}>
+                  <section style={styles.details.text}>
                     <span>Stack:</span>&nbsp;&nbsp;
                     <span>{activeSubProject.stack.join(', ')}</span>
                   </section>
                 </li>
 
-                <li style={styles.subProjectInfo.details.item}>
+                <li style={styles.details.item}>
                   <img
                     src={link('/assets/github-icon.svg')}
-                    style={styles.subProjectInfo.details.icon}
+                    style={styles.details.icon}
                   />
-                  <section style={styles.subProjectInfo.details.text}>
+                  <section style={styles.details.text}>
                     <span>Net Contributions:</span>&nbsp;&nbsp;
                     <span style={{ color: '#42BD41'}}>{activeSubProject.contribution[0]} ++</span> <span>/</span> <span style={{ color: '#E62A10'}}>{activeSubProject.contribution[1]} --</span>
                   </section>
                 </li>
 
-                <li style={styles.subProjectInfo.details.item}>
+                <li style={styles.details.item}>
                   <img
                     src={link('/assets/collaborator-icon.svg')}
-                    style={styles.subProjectInfo.details.icon}
+                    style={styles.details.icon}
                   />
-                  <section style={styles.subProjectInfo.details.text}>
+                  <section style={styles.details.text}>
                     <span>Key Role:</span>&nbsp;&nbsp;
                     <span>{activeSubProject.role}</span>
                   </section>
                 </li>
 
-                <li style={styles.subProjectInfo.details.item}>
+                <li style={styles.details.item}>
                   <img
                     src={link('/assets/domain-icon.svg')}
-                    style={styles.subProjectInfo.details.icon}
+                    style={styles.details.icon}
                   />
-                  <section style={styles.subProjectInfo.details.text}>
+                  <section style={styles.details.text}>
                     <span>Live Site:</span>&nbsp;&nbsp;
                     <span>
                       {activeSubProject.link ?
@@ -425,25 +471,31 @@ export default class ProjectTemplate extends Component {
             </section>
 
             <section
+              ref="screenshots"
               className="screenshots"
               style={styles.subProjectInfo.screenshots}
             >
-              <ul style={styles.subProjectInfo.screenshots.list}>
-                {activeSubProject.screenshots.map((screenshot, index) => {
-                  return (
-                    <li
-                      key={`screenshot:${activeSubProjectKey}-${screenshot}`}
-                      style={styles.subProjectInfo.screenshots.item}
-                    >
-                      <ImageLoader
-                        src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
-                        aspectRatio={1.79}
-                        style={styles.subProjectInfo.screenshots.image}
-                      />
-                    </li>
-                  );
-                })}
-              </ul>
+              {activeSubProject.screenshots ?
+                <ul style={styles.subProjectInfo.screenshots.list}>
+                  {activeSubProject.screenshots.map((screenshot, index) => {
+                    return (
+                      <li
+                        key={`screenshot:${activeSubProjectKey}-${screenshot}`}
+                        style={styles.subProjectInfo.screenshots.item}
+                      >
+                        <ImageLoader
+                          src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
+                          aspectRatio={1.79}
+                          style={styles.subProjectInfo.screenshots.image}
+                        />
+                      </li>
+                    );
+                  })}
+                </ul> :
+                <span style={styles.subProjectInfo.screenshots.empty}>
+                  No screenshots available.
+                </span>
+              }
             </section>
           </div>
         </section>
@@ -466,6 +518,28 @@ const styles = {
     marginTop: 'calc(4.5em + 1px)',
   },
 
+  details: {
+    list: {
+      listStyle: 'none',
+      marginLeft: 0,
+    },
+
+    item: {
+      display: 'flex',
+      alignItems: 'baseline',
+      marginBottom: '.5em',
+      color: '#6e768a',
+      fontSize: '.9em',
+      fontWeight: 300,
+      lineHeight: 1
+    },
+
+    icon: {
+      width: '1em',
+      marginRight: '.5em'
+    }
+  },
+
   projectInfo: {
     base: {
       flex: 1,
@@ -479,8 +553,7 @@ const styles = {
       },
 
       title: {
-        margin: 0,
-        marginBottom: '.25em',
+        marginBottom: '.2em',
         fontSize: '2em',
         fontWeight: 700,
         lineHeight: 1,
@@ -509,6 +582,12 @@ const styles = {
         width: '100%',
         paddingBottom: 'calc(55.8% + (.558 * 6em))',
         marginBottom: '2em',
+      }
+    },
+
+    details: {
+      list: {
+        marginBottom: '2em'
       }
     },
 
@@ -646,24 +725,9 @@ const styles = {
     },
 
     details: {
-      listStyle: 'none',
-      maxWidth: '80%',
-      margin: 0,
-      marginBottom: '4em',
-
-      item: {
-        display: 'flex',
-        alignItems: 'baseline',
-        marginBottom: '.5em',
-        color: '#6e768a',
-        fontSize: '.9em',
-        fontWeight: 300,
-        lineHeight: 1
-      },
-
-      icon: {
-        width: '1em',
-        marginRight: '.5em'
+      list: {
+        maxWidth: '80%',
+        marginBottom: '4em',
       }
     },
 
@@ -697,6 +761,15 @@ const styles = {
       image: {
         width: '100%',
         border: '1px solid rgba(0,0,0,0.2)',
+      },
+
+      empty: {
+        position: 'absolute',
+        left: '50%',
+        top: '30%',
+        transform: 'translate(-50%, -50%)',
+        fontWeight: 300,
+        color: '#6e768a'
       }
     }
   }
