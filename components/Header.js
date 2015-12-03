@@ -50,6 +50,7 @@ export default class Header extends Component {
 const styles = {
   base: {
     position: 'fixed',
+    zIndex: 1000,
     top: '0',
     left: '0',
     right: '0',
@@ -58,7 +59,7 @@ const styles = {
     justifyContent: 'space-between',
     height: '4.5em',
     padding: '0 2em',
-    backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
+    backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
   },
 

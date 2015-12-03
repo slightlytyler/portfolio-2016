@@ -90,6 +90,7 @@ const styles = {
       borderRadius: '.25em',
       fontSize: '1em',
       fontWeight: '400',
+      color: '#19243e',
       cursor: 'pointer',
 
       ':hover': {
