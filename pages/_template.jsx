@@ -56,7 +56,7 @@ export default React.createClass({
           fontSize: '1.11vw'
         }}
       >
-        <Header />
+        <Header isHomePage={isHomePage} />
 
         {!isHomePage ? <RouteHandler {...this.props}/> : (
           <div

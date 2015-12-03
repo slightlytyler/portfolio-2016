@@ -12,10 +12,14 @@ export default class Header extends Component {
   };
 
   render() {
+    const { isHomePage } = this.props;
     return (
       <header
         className="site-header"
-        style={styles.base}
+        style={[
+          styles.base,
+          !isHomePage && { backgroundColor: '#ECF0F1' }
+        ]}
       >
         <Link to={link('/')}>
           <img
@@ -23,6 +27,21 @@ export default class Header extends Component {
             style={styles.img}
           />
         </Link>
+
+        {!isHomePage && (
+          <Link
+            to={link('/hire-me')}
+            style={styles.hireMe.link}
+          >
+            <span
+              ref="hire-me-header-button"
+              style={styles.hireMe}
+            >
+              Hire Me
+            </span>
+          </Link>
+        )}
+
       </header>
     );
   }
@@ -36,6 +55,7 @@ const styles = {
     right: '0',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'space-between',
     height: '4.5em',
     padding: '0 2em',
     backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.00) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
@@ -43,11 +63,34 @@ const styles = {
   },
 
   img: {
+    display: 'block',
     width: '8.75em',
     cursor: 'pointer',
 
     ':hover': {
       opacity: '0.85'
+    }
+  },
+
+  hireMe: {
+    padding: '.6em 1.5em',
+    borderWidth: 'calc(.0625em + 1px)',
+    borderStyle: 'solid',
+    borderColor: '#19243e',
+    borderRadius: '.25em',
+    fontSize: '1em',
+    fontWeight: '400',
+    color: '#19243e',
+    cursor: 'pointer',
+
+    ':hover': {
+      backgroundColor: '#19243e',
+      color: 'white',
+      transition: 'background-color .1s, color .1s'
+    },
+
+    link: {
+      textDecoration: 'none',
     }
   }
 };

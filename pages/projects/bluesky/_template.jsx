@@ -137,7 +137,12 @@ export default class ProjectTemplate extends Component {
 
       Analytics: {
         shortDescription: 'Client facing analytics on a per order and per company basis.',
-        longDescription: `test1`,
+        longDescription:
+            `Analytcis handled e greeting stat tracking on a per order basis and company wide. In addition Analytics acts as a small admin area\
+            allowing customers to resend undeliverable, failed, or blocked emails.
+
+            In addition to providing the basic structure for this app I implemented a 'soft authentication' system where customers could login\
+            only using the order # and email address associated with the order.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['1,901', '2,431'],
         role: 'Built soft authentication and provided base components / styles',
@@ -146,24 +151,45 @@ export default class ProjectTemplate extends Component {
 
       Portfolio: {
         shortDescription: 'Marketing site for white labeled minisites.',
-        longDescription: `test1`,
+        longDescription:
+            `GCC's Portfolio site is used as a marketing tool for prospective Minisites customers. Users can explore printed and e greeting\
+            collections as well as examples of current custom ordering sites.
+
+            We built the site using Jekyll and it made the dev process extremely simple (look ma no database!). smoothState.js allowed us to\
+            avoid hard reloads using pushState and Skrollr added visual flair with parallax scrolling.`,
         stack: ['Jekyll', 'jekyll-assets', 'Skrollr', 'smoothState.js'],
         contribution: ['5,314', '1,410'],
-        role: 'Scaffolded project, built layouts / styles, implemented parallax scrolling using Skrollr.',
+        role: 'Scaffolded project, built layouts / styles, implemented parallax scrolling using Skrollr, and integrated Wordpress blog via RSS.',
         link: 'http://www.gccportfolio.com',
-        screenshots: []
+        screenshots: [
+          'home-splash',
+          'about-us',
+          'printed-cards',
+          'custom-sites',
+          'blog'
+        ]
       },
 
       ProductViewer: {
         dirName: 'product-viewer',
         name: 'Product Viewer',
         shortDescription: `Product preview portion of the portfolio.`,
-        longDescription: `test1`,
+        longDescription:
+          `Product Viewer is a sub project of the portfolio. Rather than try to consume an API using Jekyll we opted to strip down Bluesky and build\
+          a small app purely for exploring current products. In addition to viewing products it also display a selection of verses and music options\
+          for e greetings.`,
         stack: ['Ember', 'Semantic UI', 'Soundcloud API'],
         contribution: ['1,843', '869'],
         role: 'Provided base components / styles and integrated Soundcloud API',
         link: 'http://products.gccportfolio.com',
-        screenshots: []
+        screenshots: [
+          'home',
+          'product-list',
+          'product-details',
+          'verses',
+          'playlists',
+          'songs'
+        ]
       }
     }
   };
@@ -483,7 +509,7 @@ export default class ProjectTemplate extends Component {
               className="screenshots"
               style={styles.subProjectInfo.screenshots}
             >
-              {activeSubProject.screenshots ?
+              {activeSubProject.screenshots && activeSubProject.screenshots.length !== 0 ?
                 <ul style={styles.subProjectInfo.screenshots.list}>
                   {activeSubProject.screenshots.map((screenshot, index) => {
                     return (
