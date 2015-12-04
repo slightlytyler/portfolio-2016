@@ -105,25 +105,37 @@ const styles = {
       transform: 'translate(-50%, -50%)',
       color: 'white',
       fontSize: '4em',
-      fontWeight: '100'
+      fontWeight: '100',
+
+      '@media (max-width: 70rem)': {
+        top: '60%',
+      },
     },
 
     container: {
       position: 'relative',
-      flex: 1
+      flex: 1,
+
+      '@media (max-width: 70rem)': {
+        flex: 2
+      },
     },
   },
 
   projectSet: {
     base: {
-      flex: 1
+      flex: 1,
     },
 
     container: {
       display: 'flex',
       flex: 1,
       justifyContent: 'center',
-      margin: '0 12.5%'
+      margin: '0 12.5%',
+
+      '@media (max-width: 70rem)': {
+        flex: 3
+      },
     },
 
     header: {

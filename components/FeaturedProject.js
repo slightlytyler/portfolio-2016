@@ -72,6 +72,7 @@ export default class FeaturedProject extends Component {
 
     return (
       <li
+        key={`featuredProject:${name}`}
         style={[
           styles.base
         ]}
@@ -124,9 +125,13 @@ export default class FeaturedProject extends Component {
 const styles = {
   base: {
     position: 'relative',
-    flex: 1,
+    width: '25%',
     cursor: 'pointer',
     overflow: 'hidden',
+
+    '@media (max-width: 70rem)': {
+      width: '50%',
+    },
   },
 
   touch: {
@@ -143,8 +148,13 @@ const styles = {
     position: 'relative',
     display: 'block',
     flex: 1,
+    marginTop: '4.5em',
     opacity: 0,
     transition: 'opacity 1s',
+
+    '@media (max-width: 70rem)': {
+      marginTop: '7em',
+    },
 
     show: {
       opacity: 1
@@ -166,6 +176,10 @@ const styles = {
     fontWeight: '300',
     whiteSpace: 'nowrap',
 
+    '@media (max-width: 70rem)': {
+      fontSize: '150%'
+    },
+
     arrow: {
       marginLeft: '.25em',
       fontSize: '200%',
@@ -181,8 +195,7 @@ const styles = {
     },
 
     container: {
-      width: '40%',
-      marginTop: '4.5em',
+      width: '40%'
     },
 
     logo: {
@@ -198,6 +211,10 @@ const styles = {
       left: '50%',
       top: '45%',
       transform: 'translate(-50%, -50%)',
+
+      '@media (max-width: 70rem)': {
+        top: '50%',
+      },
     }
   },
 
@@ -211,7 +228,12 @@ const styles = {
       alignItems: 'flex-start',
       justifyContent: 'space-between',
       height: '5em',
-      margin: '4.5em 8% 0'
+      marginLeft: '8%',
+      marginRight: '8%',
+
+      '@media (max-width: 70rem)': {
+        alignItems: 'center'
+      },
     },
 
     logo: {
@@ -219,7 +241,6 @@ const styles = {
     },
 
     link: {
-
     }
   }
 };

@@ -66,6 +66,10 @@ const styles = {
 
   container: {
     maxWidth: '40em',
+
+    '@media (max-width: 70rem)': {
+      fontSize: '150%'
+    },
   },
 
   body: {

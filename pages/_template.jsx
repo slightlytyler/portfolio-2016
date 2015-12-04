@@ -2,7 +2,8 @@
 
 import React, { Component } from 'react';
 import { RouteHandler, Link, State } from 'react-router';
-import { Container, Grid, Breakpoint, Span } from 'react-responsive-grid';
+import Radium from 'radium';
+
 import { link } from 'gatsby-helpers';
 
 import Header from '../components/Header';
@@ -10,7 +11,8 @@ import HireMeHero from '../components/HireMeHero';
 import FeaturedProject from '../components/FeaturedProject';
 import WIWO from '../components/WIWO';
 
-export default React.createClass({
+
+const Page = React.createClass({
   mixins: [State],
 
   render: function() {
@@ -55,7 +57,6 @@ export default React.createClass({
       <div
         className="page"
         style={{
-          fontSize: '1.11vw',
           paddingTop: '4.5em',
         }}
       >
@@ -72,14 +73,9 @@ export default React.createClass({
             <HireMeHero />
 
             <ul
+              key="featuredProjectsList"
               className="featured-projects"
-              style={{
-                display: 'flex',
-                height: '36%',
-                backgroundColor: 'light-grey',
-                listStyle: 'none',
-                margin: 0
-              }}
+              style={styles.featuredProjectsList}
             >
               {Object.keys(featuredProjects).map(projectKey => {
                 let project = featuredProjects[projectKey];
@@ -113,4 +109,18 @@ export default React.createClass({
   }
 });
 
+export default Radium(Page);
 
+const styles = {
+  featuredProjectsList: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    height: '36%',
+    listStyle: 'none',
+    margin: 0,
+
+    '@media (max-width: 70rem)': {
+      height: '100%',
+    },
+  }
+}
