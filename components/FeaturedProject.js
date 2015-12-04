@@ -7,6 +7,8 @@ import Radium from 'radium';
 import { link } from 'gatsby-helpers';
 import { upperCaseFirst } from 'change-case';
 
+import ImageLoader from './ImageLoader';
+
 @Radium
 export default class FeaturedProject extends Component {
   static propTypes = {
@@ -58,10 +60,16 @@ export default class FeaturedProject extends Component {
     return (
       <li
         style={[
-          styles.base,
-          { backgroundImage: `url(${link(imageName)})` }
+          styles.base
         ]}
       >
+        <ImageLoader
+          className="background-image"
+          src={link(imageName)}
+          aspectRatio={1.246}
+          style={styles.backgroundImage}
+          isAbsolute="true"
+        />
         {wrapLink(
           <div
             className="container"
@@ -101,10 +109,8 @@ const styles = {
   base: {
     position: 'relative',
     flex: 1,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    cursor: 'pointer'
+    cursor: 'pointer',
+    overflow: 'hidden',
   },
 
   touch: {
@@ -121,6 +127,17 @@ const styles = {
     position: 'relative',
     display: 'block',
     flex: 1,
+  },
+
+  backgroundImage: {
+    objectFit: 'cover',
+    objectPosition: 'center',
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    maxWidth: 'none',
+    width: '100%',
+    height: '100%'
   },
 
   link: {
