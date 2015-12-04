@@ -542,7 +542,11 @@ const styles = {
   base: {
     display: 'flex',
     height: '100vh',
-    marginTop: '-4.5em'
+    marginTop: '-4.5em',
+
+    '@media (max-width: 30rem)': {
+      flexDirection: 'column'
+    }
   },
 
   infoBase: {
@@ -580,6 +584,10 @@ const styles = {
       flex: 1,
       borderRight: '2px solid #eeeff1',
       overflow: 'scroll',
+
+      '@media (max-width: 30rem)': {
+       display: 'none'
+      }
     },
 
     header: {
@@ -694,7 +702,7 @@ const styles = {
   subProjectInfo: {
     base: {
       flex: 3,
-      overflow: 'scroll'
+      overflow: 'scroll',
     },
 
     header: {
@@ -704,7 +712,20 @@ const styles = {
         alignItems: 'flex-end',
         paddingTop: '1em',
         paddingBottom: '1em',
-        borderBottom: '2px solid #eeeff1'
+        borderBottom: '2px solid #eeeff1',
+
+        '@media (max-width: 30rem)': {
+          position: 'fixed',
+          left: 0,
+          top: '3.8em',
+          width: '100%',
+          paddingLeft: '5rem',
+          paddingRight: '5rem',
+          paddingTop: '2em',
+          fontSize: '300%',
+          backgroundColor: 'white',
+          zIndex: '100'
+        }
       },
 
       title: {
@@ -746,6 +767,11 @@ const styles = {
     main: {
       display: 'flex',
       height: 'calc(100% - 3.5em - 1px)',
+
+      '@media (max-width: 30rem)': {
+        flexDirection: 'column',
+        fontSize: '300%'
+      }
     },
 
     body: {
@@ -756,13 +782,28 @@ const styles = {
       paddingRight: '2em',
       paddingTop: '2em',
       marginRight: '2em',
-      borderRight: '1px solid #eeeff1'
+      borderRight: '1px solid #eeeff1',
+
+      '@media (max-width: 30rem)': {
+        flex: 'none',
+        height: 'auto',
+        paddingLeft: '5rem',
+        paddingRight: '5rem',
+        marginRight: 0,
+        marginTop: '6em',
+        borderRight: 'none',
+        overflow: 'visible'
+      }
     },
 
     details: {
       list: {
         maxWidth: '80%',
         marginBottom: '4em',
+
+        '@media (max-width: 30rem)': {
+          marginBottom: '3em',
+        }
       }
     },
 
@@ -772,7 +813,11 @@ const styles = {
       whiteSpace: 'pre-line',
 
       text: {
-        marginBottom: '1em'
+        marginBottom: '1em',
+
+        '@media (max-width: 30rem)': {
+          lineHeight: 2
+        }
       }
     },
 
@@ -782,6 +827,10 @@ const styles = {
       overflow: 'scroll',
       paddingTop: '2em',
       paddingBottom: '1em',
+
+      '@media (max-width: 30rem)': {
+        overflow: 'visible',
+      },
 
       list: {
         listStyle: 'none',

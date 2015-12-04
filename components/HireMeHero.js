@@ -61,7 +61,11 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '64%',
-    textAlign: 'center'
+    textAlign: 'center',
+
+    '@media (max-width: 30rem)': {
+      height: '50%'
+    },
   },
 
   container: {
@@ -69,6 +73,10 @@ const styles = {
 
     '@media (max-width: 70rem)': {
       fontSize: '150%'
+    },
+
+    '@media (max-width: 30rem)': {
+      fontSize: '200%'
     },
   },
 
@@ -83,6 +91,10 @@ const styles = {
     fontSize: '1.3125em',
     fontWeight: '300',
     color: '#19243e',
+
+    '@media (max-width: 30rem)': {
+      fontSize: '150%',
+    },
   },
 
   hireMe: {
@@ -90,6 +102,11 @@ const styles = {
       display: 'flex',
       justifyContent: 'center',
       marginTop: '2em',
+
+      '@media (max-width: 30rem)': {
+        fontSize: '150%',
+        marginTop: '3em',
+      },
     },
 
     link: {

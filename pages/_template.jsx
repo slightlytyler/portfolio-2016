@@ -122,5 +122,9 @@ const styles = {
     '@media (max-width: 70rem)': {
       height: '100%',
     },
+
+    '@media (max-width: 30rem)': {
+      height: '150%',
+    },
   }
 }

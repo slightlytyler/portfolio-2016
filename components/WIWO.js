@@ -88,7 +88,6 @@ export default class WIWO extends Component {
 
     const difference = categoryWidth - interiorWidth;
 
-    console.log(containerWidth);
     return `${(1 - (difference / containerWidth)) * difference}px`;
   }
 
@@ -173,6 +172,7 @@ const styles = {
       color: 'white',
       fontSize: '4em',
       fontWeight: '100',
+      whiteSpace: 'nowrap',
 
       '@media (max-width: 70rem)': {
         top: '60%',
@@ -186,23 +186,42 @@ const styles = {
       '@media (max-width: 70rem)': {
         flex: 2
       },
+
+      '@media (max-width: 30rem)': {
+        flex: 'none',
+        height: '30em',
+        fontSize: '120%'
+      },
     },
   },
 
   projectSet: {
     base: {
-      flex: 1,
+      width: '25%',
+
+      '@media (max-width: 30rem)': {
+        width: '50%',
+        marginBottom: '2em',
+        fontSize: '200%'
+      },
     },
 
     container: {
       display: 'flex',
       flex: 1,
+      flexWrap: 'wrap',
       justifyContent: 'center',
       margin: '0 12.5%',
 
       '@media (max-width: 70rem)': {
         flex: 3,
         margin: '0 4em',
+      },
+
+      '@media (max-width: 30rem)': {
+        flex: 'none',
+        alignItems: 'flex-start',
+        margin: '0 1em',
       },
     },
 

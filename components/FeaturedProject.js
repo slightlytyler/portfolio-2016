@@ -132,6 +132,10 @@ const styles = {
     '@media (max-width: 70rem)': {
       width: '50%',
     },
+
+    '@media (max-width: 30rem)': {
+      width: '100%'
+    },
   },
 
   touch: {
@@ -156,6 +160,10 @@ const styles = {
       marginTop: '7em',
     },
 
+    '@media (max-width: 30rem)': {
+      marginTop: '12em',
+    },
+
     show: {
       opacity: 1
     }
@@ -178,6 +186,10 @@ const styles = {
 
     '@media (max-width: 70rem)': {
       fontSize: '150%'
+    },
+
+    '@media (max-width: 30rem)': {
+      fontSize: '300%'
     },
 
     arrow: {
@@ -214,6 +226,10 @@ const styles = {
 
       '@media (max-width: 70rem)': {
         top: '50%',
+      },
+
+      '@media (max-width: 70rem)': {
+        top: '60%',
       },
     }
   },
