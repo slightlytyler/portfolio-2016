@@ -95,7 +95,12 @@ const styles = {
     display: 'flex',
     maxWidth: '50vw',
     paddingTop: '6em',
-    margin: '0 auto'
+    margin: '0 auto',
+
+    '@media (max-width: 70rem)': {
+      maxWidth: '75vw',
+      fontSize: '150%'
+    },
   },
 
   profile: {

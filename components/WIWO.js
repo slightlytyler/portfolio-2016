@@ -47,9 +47,55 @@ export default class WIWO extends Component {
     }
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      offset: 0
+    };
+  }
+
+  componentDidMount() {
+    this.setState({
+      offset: this.getOffset()
+    });
+  }
+
+  getOffset() {
+    // Returns the offset for proper centering
+    // based on the difference between the longest
+    // text item in the last category and the
+    // category width
+    const { projects } = this.props;
+    const categories = Object.keys(projects);
+    const lastCategory = categories[categories.length - 1];
+    const lastCategoryProjects = projects[lastCategory];
+
+    const containerNode = this.refs.container;
+    const categoryNode = this.refs[`wiwoCategory:${lastCategory}`];
+    const headerNode = this.refs[`category:${lastCategory}-header`];
+    const projectNodes = Object.keys(lastCategoryProjects).map(project =>
+      this.refs[`category:${lastCategory}-project:${project}`]
+    );
+
+    const containerWidth = containerNode.offsetWidth;
+    const categoryWidth = categoryNode.offsetWidth;
+    const headerWidth = headerNode.offsetWidth;
+    const projectWidth = projectNodes.reduce((a, b) =>
+      a > b ? a : b
+    ).offsetWidth;
+    const interiorWidth = headerWidth > projectWidth ? headerWidth : projectWidth
+
+    const difference = categoryWidth - interiorWidth;
+
+    console.log(containerWidth);
+    return `${(1 - (difference / containerWidth)) * difference}px`;
+  }
+
   render() {
     const { projects } = this.props;
     const categories = Object.keys(projects);
+    const { offset } = this.state;
 
     return (
       <section style={styles.wiwo}>
@@ -57,24 +103,41 @@ export default class WIWO extends Component {
           <header style={styles.header.base}>What I'm working on</header>
         </div>
 
-        <div style={styles.projectSet.container}>
+        <div
+          ref="container"
+          style={[
+            styles.projectSet.container,
+            { paddingLeft: offset }
+          ]}
+        >
           {categories.map(category => (
               <section
+                ref={`wiwoCategory:${category}`}
                 key={`wiwoCategory:${category}`}
                 style={styles.projectSet.base}
               >
                 <ul style={styles.projectSet.list}>
-                  <header style={styles.projectSet.header}>{category}</header>
+                  <header style={styles.projectSet.header}>
+                    <span ref={`category:${category}-header`}>
+                      {category}
+                    </span>
+                  </header>
 
                   {Object.keys(projects[category]).map(project => (
                       <li
                         style={styles.projectSet.item}
                         key={`wiwoProject:${category}-${project}`}
                       >
-                        {project}
+                        <span
+                          ref={`category:${category}-project:${project}`}
+                        >
+                          {project}
+                        </span>
 
                         {projects[category][project].comingSoon &&
-                          <span style={styles.comingSoon}>Coming Soon</span>
+                          <span style={styles.comingSoon}>
+                            Coming Soon
+                          </span>
                         }
                       </li>
                     )
@@ -94,7 +157,11 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
-    backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #64FFDA 100%)'
+    backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #64FFDA 100%)',
+
+    '@media (max-width: 70rem)': {
+      fontSize: '120%'
+    },
   },
 
   header: {
@@ -134,7 +201,8 @@ const styles = {
       margin: '0 12.5%',
 
       '@media (max-width: 70rem)': {
-        flex: 3
+        flex: 3,
+        margin: '0 4em',
       },
     },
 
@@ -146,7 +214,8 @@ const styles = {
     },
 
     list: {
-      listStyle: 'none'
+      listStyle: 'none',
+      margin: 0
     },
 
     item: {
