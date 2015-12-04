@@ -28,9 +28,12 @@ export default class ImageLoader extends Component {
 
   loadImage() {
     const { image } = this.refs;
+    const { callback } = this.props;
 
-    image.onload = () =>
-        this.setState({ hasLoaded: true });
+    image.onload = () => {
+      this.setState({ hasLoaded: true });
+      callback && callback();
+    }
   }
 
   render() {

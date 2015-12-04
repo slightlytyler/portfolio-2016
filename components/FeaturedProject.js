@@ -18,6 +18,18 @@ export default class FeaturedProject extends Component {
     style: PropTypes.string,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      hasLoaded: false
+    };
+  }
+
+  onLoad() {
+    this.setState({ hasLoaded: true });
+  }
+
   render() {
     const {
       name,
@@ -25,6 +37,7 @@ export default class FeaturedProject extends Component {
       linkText,
       color,
     } = this.props;
+    const { hasLoaded } = this.state;
     const projectStyle = `style${upperCaseFirst(this.props.projectStyle)}`;
     const imageName = `/assets/projects/${name}/project-image.jpg`;
     const logoName = `/assets/projects/${name}/project-logo.svg`;
@@ -67,15 +80,18 @@ export default class FeaturedProject extends Component {
           className="background-image"
           src={link(imageName)}
           aspectRatio={1.246}
-          style={styles.backgroundImage}
           isAbsolute="true"
+          callback={() => this.onLoad() }
+          style={styles.backgroundImage}
         />
+
         {wrapLink(
           <div
             className="container"
             style={[
               styles.container,
-              styles[projectStyle].container
+              styles[projectStyle].container,
+              hasLoaded && styles.container.show
             ]}
           >
             <img
@@ -127,6 +143,12 @@ const styles = {
     position: 'relative',
     display: 'block',
     flex: 1,
+    opacity: 0,
+    transition: 'opacity 1s',
+
+    show: {
+      opacity: 1
+    }
   },
 
   backgroundImage: {
