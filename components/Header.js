@@ -28,19 +28,20 @@ export default class Header extends Component {
           />
         </Link>
 
-        {!isHomePage && !isHireMePage && (
-          <Link
-            to={link('/hire-me/')}
-            style={styles.hireMe.link}
+        <Link
+          to={link('/hire-me/')}
+          style={{
+            ...styles.hireMe.link,
+            opacity: (isHomePage || isHireMePage) ? 0 : 1
+          }}
+        >
+          <span
+            ref="hire-me-header-button"
+            style={styles.hireMe}
           >
-            <span
-              ref="hire-me-header-button"
-              style={styles.hireMe}
-            >
-              Hire Me
-            </span>
-          </Link>
-        )}
+            Hire Me
+          </span>
+        </Link>
 
       </header>
     );
@@ -61,7 +62,7 @@ const styles = {
     padding: '0 2em',
     backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
-    transition: 'background-color .5s, background-image .5s'
+    transition: 'background-color 3s, background-image 3s'
   },
 
   img: {
@@ -94,6 +95,7 @@ const styles = {
 
     link: {
       textDecoration: 'none',
+      transition: 'opacity .1s'
     }
   }
 };
