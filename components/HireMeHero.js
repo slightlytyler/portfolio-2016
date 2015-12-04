@@ -1,7 +1,10 @@
 'use strict'
 
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import Radium from 'radium';
+
+import { link } from 'gatsby-helpers';
 
 @Radium
 export default class HireMeHero extends Component {
@@ -33,14 +36,18 @@ export default class HireMeHero extends Component {
             written in Javascript.
           </div>
 
-          <div style={styles.hireMe.container}
-        >
-            <span
-              className="hire-me"
-              style={styles.hireMe.button}
+          <div style={styles.hireMe.container}>
+            <Link
+              to={link('/hire-me/')}
+              style={styles.hireMe.link}
             >
-              Hire Me
-            </span>
+              <span
+                ref="hireMeHeroButton"
+                style={styles.hireMe.button}
+              >
+                Hire Me
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -54,7 +61,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     height: '64%',
-    paddingTop: '4.5em',
     textAlign: 'center'
   },
 
@@ -82,6 +88,10 @@ const styles = {
       marginTop: '2em',
     },
 
+    link: {
+      textDecoration: 'none'
+    },
+
     button: {
       padding: '1em 5em',
       borderWidth: 'calc(.0625em + 1px)',
@@ -92,11 +102,11 @@ const styles = {
       fontWeight: '400',
       color: '#19243e',
       cursor: 'pointer',
+      transition: 'background-color .1s, color .1s',
 
       ':hover': {
         backgroundColor: '#19243e',
-        color: 'white',
-        transition: 'background-color .1s, color .1s'
+        color: 'white'
       }
     }
   }

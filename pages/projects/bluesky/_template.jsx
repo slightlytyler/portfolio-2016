@@ -541,7 +541,8 @@ export default class ProjectTemplate extends Component {
 const styles = {
   base: {
     display: 'flex',
-    height: '100vh'
+    height: '100vh',
+    marginTop: '-4.5em'
   },
 
   infoBase: {

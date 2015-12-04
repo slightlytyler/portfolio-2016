@@ -47,21 +47,27 @@ export default React.createClass({
     const routes = this.getRoutes().map(function(route) {
       return route.name;
     });
+
     const isHomePage = routes.indexOf('/') !== -1;
+    const isHireMePage = routes.indexOf('/hire-me/') !== -1;
 
     return (
       <div
         className="page"
         style={{
-          fontSize: '1.11vw'
+          fontSize: '1.11vw',
+          paddingTop: '4.5em',
         }}
       >
-        <Header isHomePage={isHomePage} />
+        <Header
+          isHomePage={isHomePage}
+          isHireMePage={isHireMePage}
+        />
 
         {!isHomePage ? <RouteHandler {...this.props}/> : (
           <div
             ref="home"
-            style={{ height: '98vh' }}
+            style={{ height: 'calc(98vh - 4.5em)' }}
           >
             <HireMeHero />
 
