@@ -40,6 +40,7 @@ export default class ImageLoader extends Component {
     const {
       aspectRatio,
       containerStyle,
+      previewStyle,
       isAbsolute
     } = this.props;
     const propStyles = this.props.style;
@@ -49,8 +50,9 @@ export default class ImageLoader extends Component {
       <div
         style={[
           styles.container,
-          !hasLoaded && containerStyle,
-          { paddingBottom:  `${100 * (1 / aspectRatio)}%` },
+          containerStyle,
+          !hasLoaded && previewStyle,
+          aspectRatio && { paddingBottom:  `${100 * (1 / aspectRatio)}%` },
           hasLoaded && styles.container.loaded,
           isAbsolute && {
             position: 'absolute',

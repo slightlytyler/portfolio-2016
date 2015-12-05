@@ -24,45 +24,45 @@ export default class ProjectsTemplate extends Component {
             className="pic"
             src={link("/assets/profile@2x.jpg")}
             style={styles.pic}
-            containerStyle={{
-              marginBottom: '.75em',
-              borderRadius: '6px',
-            }}
+            containerStyle={styles.picContainer}
+            previewStyle={styles.picPreview}
           />
 
-          <a
-            ref="resumeButton"
-            className="resume-button"
-            href="https://github.com/slightlytyler"
-            target="_blank"
-            style={[
-              styles.button,
-              styles.resumeButton
-            ]}
-          >
-            <img
-              src={link("/assets/resume-icon.svg")}
-              style={styles.button.icon}
-            />
-            View my résumé
-          </a>
+          <div style={styles.buttonsContainer}>
+            <a
+              ref="resumeButton"
+              className="resume-button"
+              href="https://github.com/slightlytyler"
+              target="_blank"
+              style={[
+                styles.button,
+                styles.resumeButton
+              ]}
+            >
+              <img
+                src={link("/assets/resume-icon.svg")}
+                style={styles.button.icon}
+              />
+              View my résumé
+            </a>
 
-          <a
-            ref="githubButton"
-            className="github-button"
-            href="https://github.com/slightlytyler"
-            target="_blank"
-            style={[
-              styles.button,
-              styles.githubButton
-            ]}
-          >
-            <img
-              src={link("/assets/github-icon.svg")}
-              style={styles.button.icon}
-            />
-            View my Github
-          </a>
+            <a
+              ref="githubButton"
+              className="github-button"
+              href="https://github.com/slightlytyler"
+              target="_blank"
+              style={[
+                styles.button,
+                styles.githubButton
+              ]}
+            >
+              <img
+                src={link("/assets/github-icon.svg")}
+                style={styles.button.icon}
+              />
+              View my Github
+            </a>
+          </div>
         </section>
 
         <section
@@ -101,19 +101,56 @@ const styles = {
       maxWidth: '75vw',
       fontSize: '150%'
     },
+
+    '@media (max-width: 30rem)': {
+      flexDirection: 'column',
+      maxWidth: 'none',
+      paddingTop: '8em',
+      margin: '0 5rem',
+      fontSize: '250%'
+    }
   },
 
   profile: {
     position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
     flex: 1,
     marginRight: '2em',
+
+    '@media (max-width: 30rem)': {
+      flexDirection: 'row',
+      marginRight: 0,
+      marginBottom: '4em'
+    }
   },
 
   pic: {
     display: 'block',
-    width: '100%',
     marginBottom: '.75em',
     borderRadius: '6px',
+
+    '@media (max-width: 30rem)': {
+      flex: 1,
+      marginBottom: 0
+    }
+  },
+
+  picContainer: {
+    flex: 1
+  },
+
+  picPreview: {
+    marginBottom: '.75em',
+    borderRadius: '6px',
+  },
+
+  buttonsContainer: {
+    '@media (max-width: 30rem)': {
+      flex: 2,
+      alignSelf: 'flex-end',
+      paddingLeft: '5rem'
+    }
   },
 
   button: {
@@ -124,11 +161,15 @@ const styles = {
     fontSize: '.75em',
     fontWeight: 400,
     textDecoration: 'none',
-    borderWidth: '2px',
+    borderWidth: 'calc(.0625em + 1px)',
     borderStyle: 'solid',
-    borderRadius: '6px',
+    borderRadius: '.25em',
     cursor: 'pointer',
     transition: 'background-color .1s, color .1s',
+
+    '@media (max-width: 30rem)': {
+      fontSize: '120%'
+    },
 
     icon: {
       width: '.8em',
@@ -172,12 +213,16 @@ const styles = {
       marginBottom: 0,
       fontSize: '2em',
       lineheight: 1,
-      color: '#6E768A'
+      color: '#19243E',
     }
   },
 
   paragraph: {
     fontSize: '1.1em',
-    fontWeight: 300
+    fontWeight: 300,
+
+    '@media (max-width: 30rem)': {
+      fontSize: '140%'
+    }
   }
 }

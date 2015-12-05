@@ -80,7 +80,9 @@ export default class FeaturedProject extends Component {
         <ImageLoader
           className="background-image"
           src={link(imageName)}
-          aspectRatio={1.246}
+          aspectRatio={false}
+          containerStyle={styles.imageContainer}
+          previewStyle={styles.imagePreview}
           isAbsolute="true"
           callback={() => this.onLoad() }
           style={styles.backgroundImage}
@@ -197,6 +199,23 @@ const styles = {
       fontSize: '200%',
       lineHeight: 0,
       verticalAlign: '-.125em',
+    }
+  },
+
+  imagePreview: {
+    borderStyle: 'solid',
+    borderColor: 'rgba(0,0,0,.15)',
+    borderLeftWidth: 0,
+    borderRightWidth: '1px',
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
+
+    '@media (max-width: 30rem)': {
+      borderRightWidth: 0,
+    },
+
+    '@media (max-width: 30rem)': {
+      borderBottomWidth: '1px',
     }
   },
 

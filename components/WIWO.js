@@ -189,8 +189,8 @@ const styles = {
 
       '@media (max-width: 30rem)': {
         flex: 'none',
-        height: '30em',
-        fontSize: '120%'
+        height: '25em',
+        fontSize: '150%'
       },
     },
   },
@@ -202,7 +202,7 @@ const styles = {
       '@media (max-width: 30rem)': {
         width: '50%',
         marginBottom: '2em',
-        fontSize: '200%'
+        fontSize: '250%'
       },
     },
 

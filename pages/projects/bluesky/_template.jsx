@@ -204,9 +204,10 @@ export default class ProjectTemplate extends Component {
 
   setActiveProject(key) {
     // Scroll top
-    const { body, screenshots } = this.refs;
+    const { body, screenshots, main } = this.refs;
     body.scrollTop = 0;
     screenshots.scrollTop = 0;
+    main.scrollTop = 0;
 
     // Set state5
     this.setState({
@@ -272,7 +273,7 @@ export default class ProjectTemplate extends Component {
               src={project.image}
               aspectRatio={1.4}
               style={styles.projectInfo.image.base}
-              containerStyle={{
+              previewStyle={{
                 position: 'absolute',
                 left: '-6em',
                 top: 0,
@@ -376,11 +377,27 @@ export default class ProjectTemplate extends Component {
           <header
             style={styles.subProjectInfo.header.base}
           >
-            <h3
-              style={styles.subProjectInfo.header.title}
-            >
-              {activeSubProject.name || activeSubProjectKey}
-            </h3>
+            <div>
+              <div
+                style={styles.subProjectInfo.header.projectTitle.container}
+              >
+                <h2
+                  style={styles.subProjectInfo.header.projectTitle.title}
+                >
+                  {project.name}:
+                </h2>
+                <span
+                  style={styles.subProjectInfo.header.projectTitle.description}
+                >
+                  {project.shortDescription}
+                </span>
+              </div>
+              <h3
+                style={styles.subProjectInfo.header.title}
+              >
+                {activeSubProject.name || activeSubProjectKey}
+              </h3>
+            </div>
 
             <section className="pagination">
               <span
@@ -429,6 +446,7 @@ export default class ProjectTemplate extends Component {
           </header>
 
           <div
+            ref="main"
             className="main"
             style={styles.subProjectInfo.main}
           >
@@ -545,7 +563,8 @@ const styles = {
     marginTop: '-4.5em',
 
     '@media (max-width: 30rem)': {
-      flexDirection: 'column'
+      flexDirection: 'column',
+      height: 'auto',
     }
   },
 
@@ -567,7 +586,7 @@ const styles = {
       display: 'flex',
       alignItems: 'baseline',
       marginBottom: '.5em',
-      color: '#6e768a',
+      color: '#19243E',
       fontSize: '.9em',
       fontWeight: 300,
       lineHeight: 1
@@ -586,7 +605,10 @@ const styles = {
       overflow: 'scroll',
 
       '@media (max-width: 30rem)': {
-       display: 'none'
+        display: 'none',
+        flex: 'none',
+        height: 'auto',
+        overflow: 'visible',
       }
     },
 
@@ -605,7 +627,7 @@ const styles = {
 
       description: {
         fontWeight: 300,
-        color: '#6e768a'
+        color: '#6e768a',
       }
     },
 
@@ -637,7 +659,7 @@ const styles = {
     description: {
       fontSize: '1em',
       fontWeight: 300,
-      color: '#19243E'
+      color: '#6e768a',
     },
 
     subProjects: {
@@ -721,7 +743,6 @@ const styles = {
           width: '100%',
           paddingLeft: '5rem',
           paddingRight: '5rem',
-          paddingTop: '2em',
           fontSize: '300%',
           backgroundColor: 'white',
           zIndex: '100'
@@ -735,6 +756,34 @@ const styles = {
         lineHeight: 1,
         color: '#19243E'
       },
+
+      projectTitle: {
+        container: {
+          display: 'flex',
+          alignItems: 'baseline',
+          justifyContent: 'flex-start',
+          marginBottom: '.5em',
+          borderBottom: '1px solid #eeeff1',
+
+          '@media (min-width: 30rem)': {
+            display: 'none'
+          }
+        },
+
+        title: {
+          marginRight: '.25em',
+          marginBottom: 0,
+          fontSize: '1.5em',
+          fontWeight: 300,
+          color: '#19243E'
+        },
+
+        description: {
+          color: '#6e768a',
+          fontWeight: 300
+        }
+      },
+
 
       pagination: {
         item: {
@@ -770,7 +819,10 @@ const styles = {
 
       '@media (max-width: 30rem)': {
         flexDirection: 'column',
-        fontSize: '300%'
+        height: '100vh',
+        marginTop: '7em',
+        fontSize: '300%',
+        overflow: 'scroll'
       }
     },
 
@@ -790,7 +842,6 @@ const styles = {
         paddingLeft: '5rem',
         paddingRight: '5rem',
         marginRight: 0,
-        marginTop: '6em',
         borderRight: 'none',
         overflow: 'visible'
       }
