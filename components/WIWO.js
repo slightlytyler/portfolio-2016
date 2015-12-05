@@ -68,27 +68,55 @@ export default class WIWO extends Component {
     // category width
     const { projects } = this.props;
     const categories = Object.keys(projects);
+
+    const phoneMQ = window.matchMedia( "(max-width: 30rem)" );
+
+    var interiorWidth,
+        difference,
+        headerWidth,
+        projectWidth;
+
     const lastCategory = categories[categories.length - 1];
     const lastCategoryProjects = projects[lastCategory];
 
-    const containerNode = this.refs.container;
-    const categoryNode = this.refs[`wiwoCategory:${lastCategory}`];
-    const headerNode = this.refs[`category:${lastCategory}-header`];
-    const projectNodes = Object.keys(lastCategoryProjects).map(project =>
+    const lastHeaderNode = this.refs[`category:${lastCategory}-header`];
+    const lastProjectNodes = Object.keys(lastCategoryProjects).map(project =>
       this.refs[`category:${lastCategory}-project:${project}`]
     );
 
-    const containerWidth = containerNode.offsetWidth;
-    const categoryWidth = categoryNode.offsetWidth;
-    const headerWidth = headerNode.offsetWidth;
-    const projectWidth = projectNodes.reduce((a, b) =>
+    const lastHeaderWidth = lastHeaderNode.offsetWidth;
+    const lastProjectWidth = lastProjectNodes.reduce((a, b) =>
       a > b ? a : b
     ).offsetWidth;
-    const interiorWidth = headerWidth > projectWidth ? headerWidth : projectWidth
 
-    const difference = categoryWidth - interiorWidth;
+    const categoryNode = this.refs[`wiwoCategory:${lastCategory}`];
+    const categoryWidth = categoryNode.offsetWidth;
 
-    return `${(1 - (difference / containerWidth)) * difference}px`;
+    if (phoneMQ.matches) {
+      const secondCategory = categories[1];
+      const secondCategoryProjects = projects[secondCategory];
+
+      const secondHeaderNode = this.refs[`category:${secondCategory}-header`];
+      const secondProjectNodes = Object.keys(secondCategoryProjects).map(project =>
+        this.refs[`category:${secondCategory}-project:${project}`]
+      );
+
+      const secondHeaderWidth = secondHeaderNode.offsetWidth;
+      const secondProjectWidth = secondProjectNodes.reduce((a, b) =>
+        a > b ? a : b
+      ).offsetWidth;
+
+      headerWidth = lastHeaderWidth > secondHeaderWidth ? lastHeaderWidth : secondHeaderWidth;
+      projectWidth = lastProjectWidth > secondProjectWidth ? lastProjectWidth : secondProjectWidth;
+    } else {
+      headerWidth = lastHeaderNode;
+      projectWidth = lastProjectWidth;
+    }
+
+    interiorWidth = headerWidth > projectWidth ? headerWidth : projectWidth
+    difference = categoryWidth - interiorWidth;
+
+    return `${(difference / 2)}px`;
   }
 
   render() {
@@ -106,7 +134,7 @@ export default class WIWO extends Component {
           ref="container"
           style={[
             styles.projectSet.container,
-            { paddingLeft: offset }
+            { transform: `translateX(${offset})` }
           ]}
         >
           {categories.map(category => (
@@ -131,13 +159,13 @@ export default class WIWO extends Component {
                           ref={`category:${category}-project:${project}`}
                         >
                           {project}
-                        </span>
 
-                        {projects[category][project].comingSoon &&
-                          <span style={styles.comingSoon}>
-                            Coming Soon
-                          </span>
-                        }
+                          {projects[category][project].comingSoon &&
+                            <span style={styles.comingSoon}>
+                              Coming Soon
+                            </span>
+                          }
+                        </span>
                       </li>
                     )
                   )}

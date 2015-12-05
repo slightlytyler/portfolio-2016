@@ -62,7 +62,7 @@ const styles = {
     padding: '0 2rem',
     backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
-    transition: 'background-color 3s, background-image 3s',
+    transition: 'background-color .5s, background-image .5s',
 
     '@media (max-width: 30rem)': {
       padding: '0 5rem',
