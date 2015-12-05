@@ -137,7 +137,10 @@ const styles = {
   },
 
   picContainer: {
-    flex: 1
+    flex: 'none',
+    '@media (max-width: 30rem)': {
+      flex: 1
+    }
   },
 
   picPreview: {

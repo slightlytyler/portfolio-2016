@@ -725,6 +725,12 @@ const styles = {
     base: {
       flex: 3,
       overflow: 'scroll',
+
+      '@media (max-width: 30rem)': {
+        overflow: 'visible',
+        paddingTop: 0,
+        marginTop: 0
+      }
     },
 
     header: {
@@ -820,7 +826,7 @@ const styles = {
       '@media (max-width: 30rem)': {
         flexDirection: 'column',
         height: '100vh',
-        marginTop: '7em',
+        paddingTop: '12em',
         fontSize: '300%',
         overflow: 'scroll'
       }
@@ -841,6 +847,7 @@ const styles = {
         height: 'auto',
         paddingLeft: '5rem',
         paddingRight: '5rem',
+        paddingTop: 0,
         marginRight: 0,
         borderRight: 'none',
         overflow: 'visible'
