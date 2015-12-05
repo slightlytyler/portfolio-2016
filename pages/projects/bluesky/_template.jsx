@@ -294,7 +294,7 @@ export default class ProjectTemplate extends Component {
                   style={styles.details.icon}
                 />
                 <section style={styles.details.text}>
-                  <span>Project Owner:</span>&nbsp;&nbsp;
+                  <span>Project&nbsp;Owner:</span>&ensp;
                   <span>{project.owner}</span>
                 </section>
               </li>
@@ -306,8 +306,8 @@ export default class ProjectTemplate extends Component {
                     style={styles.details.icon}
                   />
                   <section style={styles.details.text}>
-                    <span>Agency:</span>&nbsp;&nbsp;
-                    <span>Deep Space Robots</span>
+                    <span>Agency:</span>&ensp;
+                    <span>{project.agency}</span>
                   </section>
                 </li>
               )}
@@ -468,7 +468,7 @@ export default class ProjectTemplate extends Component {
                     style={styles.details.icon}
                   />
                   <section style={styles.details.text}>
-                    <span>Stack:</span>&nbsp;&nbsp;
+                    <span>Stack:</span>&ensp;
                     <span>{activeSubProject.stack.join(', ')}</span>
                   </section>
                 </li>
@@ -479,7 +479,7 @@ export default class ProjectTemplate extends Component {
                     style={styles.details.icon}
                   />
                   <section style={styles.details.text}>
-                    <span>Net Contributions:</span>&nbsp;&nbsp;
+                    <span>Net&nbsp;Contributions:</span>&ensp;
                     <span style={{ color: '#42BD41'}}>{activeSubProject.contribution[0]} ++</span> <span>/</span> <span style={{ color: '#E62A10'}}>{activeSubProject.contribution[1]} --</span>
                   </section>
                 </li>
@@ -490,7 +490,7 @@ export default class ProjectTemplate extends Component {
                     style={styles.details.icon}
                   />
                   <section style={styles.details.text}>
-                    <span>Key Role:</span>&nbsp;&nbsp;
+                    <span>Key&nbsp;Role:</span>&ensp;
                     <span>{activeSubProject.role}</span>
                   </section>
                 </li>
@@ -501,7 +501,7 @@ export default class ProjectTemplate extends Component {
                     style={styles.details.icon}
                   />
                   <section style={styles.details.text}>
-                    <span>Live Site:</span>&nbsp;&nbsp;
+                    <span>Live&nbsp;Site:</span>&ensp;
                     <span>
                       {activeSubProject.link ?
                         <a href={activeSubProject.link}>{activeSubProject.linkText || activeSubProject.link}</a> :
@@ -911,7 +911,8 @@ const styles = {
         top: '30%',
         transform: 'translate(-50%, -50%)',
         fontWeight: 300,
-        color: '#6e768a'
+        color: '#6e768a',
+        borderBottom: '2px solid #eeeff1'
       }
     }
   }
