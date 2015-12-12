@@ -25,23 +25,23 @@ const Page = React.createClass({
         projectStyle: 'one'
       },
 
-      moxie: {
-        logoBaseline: -.5,
-        link: 'https://google.com',
+      mocksy: {
+        logoBaseline: -.7,
+        link: 'https://slightlytyler.github.io/mocksy',
         linkText: 'Download App',
         projectStyle: 'two'
       },
 
       'on-track': {
         logoBaseline: -.2,
-        link: 'https://google.com',
+        link: 'https://github.com/slightlytyler/react-native-redux-todo',
         linkText: 'View Repo',
         projectStyle: 'one'
       },
 
       'bluprint': {
         logoBaseline: -.26,
-        link: 'https://google.com',
+        link: 'https://www.npmjs.com/package/bluprint',
         linkText: 'Download from NPM',
         projectStyle: 'two'
       }
