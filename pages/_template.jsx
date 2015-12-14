@@ -32,8 +32,8 @@ const Page = React.createClass({
         projectStyle: 'two'
       },
 
-      'on-track': {
-        logoBaseline: -.2,
+      'todo': {
+        logoBaseline: -.45,
         link: 'https://github.com/slightlytyler/react-native-redux-todo',
         linkText: 'View Repo',
         projectStyle: 'one'
