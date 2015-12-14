@@ -32,8 +32,7 @@ export default class ProjectsTemplate extends Component {
             <a
               ref="resumeButton"
               className="resume-button"
-              href="https://github.com/slightlytyler"
-              target="_blank"
+              href="https://raw.github.com/slightlytyler/slightlytyler.github.io/source/pages/assets/resume.pdf"
               style={[
                 styles.button,
                 styles.resumeButton
