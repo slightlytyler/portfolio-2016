@@ -20,21 +20,21 @@ export default class WIWO extends Component {
           comingSoon: true
         },
 
-        Moxie: {
+        Mocksy: {
           link: '',
           comingSoon: true
         }
       },
 
       Mobile: {
-        OnTrack: {
+        Fams: {
           link: '',
           comingSoon: true
         }
       },
 
       Mac: {
-        Moxie: {
+        Mocksy: {
           link: ''
         }
       },
@@ -152,13 +152,15 @@ export default class WIWO extends Component {
 
                   {Object.keys(projects[category]).map(project => (
                       <li
-                        style={styles.projectSet.item}
+                        style={styles.projectSet.item.base}
                         key={`wiwoProject:${category}-${project}`}
                       >
                         <span
                           ref={`category:${category}-project:${project}`}
                         >
-                          {project}
+                          <span style={styles.projectSet.item.text}>
+                            {project}
+                          </span>
 
                           {projects[category][project].comingSoon &&
                             <span style={styles.comingSoon}>
@@ -184,7 +186,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
-    backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #64FFDA 100%)',
+    backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #5AE6C5 100%)',
 
     '@media (max-width: 70rem)': {
       fontSize: '120%'
@@ -256,7 +258,7 @@ const styles = {
     header: {
       marginBottom: '1em',
       fontSize: '2em',
-      fontWeight: '300',
+      fontWeight: '400',
       color: '#4A918A',
     },
 
@@ -266,19 +268,26 @@ const styles = {
     },
 
     item: {
-      position: 'relative',
-      marginBottom: '1em',
-      fontSize: '1.2em',
-      fontWeight: '300',
-      color: 'rgba(255, 255, 255, 0.8)'
+      base: {
+        position: 'relative',
+        marginBottom: '1em',
+        color: 'rgba(255, 255, 255, 0.8)'
+      },
+
+      text: {
+        fontFamily: 'GC, serif',
+        fontStyle: 'italic',
+        fontSize: '1.2em',
+      }
     },
   },
 
   comingSoon: {
-    padding: '.2em .5em .15em',
+    padding: '.25em .5em .15em',
     marginLeft: '1em',
-    verticalAlign: '.25em',
+    verticalAlign: '.5em',
     fontSize: '.5em',
+    fontWeight: '400',
     textTransform: 'uppercase',
     whiteSpace: 'nowrap',
     borderWidth: 'calc(.0625em + 1px)',

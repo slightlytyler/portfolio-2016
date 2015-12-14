@@ -316,9 +316,8 @@ export default class ProjectTemplate extends Component {
 
           <div
             className="description"
-            style={styles.projectInfo.description}
           >
-            <p>
+            <p style={styles.projectInfo.description}>
               {project.longDescription}
             </p>
           </div>
@@ -587,7 +586,7 @@ const styles = {
       alignItems: 'baseline',
       marginBottom: '.5em',
       color: '#19243E',
-      fontSize: '.9em',
+      fontSize: '.8em',
       fontWeight: 300,
       lineHeight: 1
     },
@@ -626,7 +625,8 @@ const styles = {
       },
 
       description: {
-        fontWeight: 300,
+        fontFamily: 'GC, serif',
+        fontStyle: 'italic',
         color: '#6e768a',
       }
     },
@@ -657,8 +657,10 @@ const styles = {
     },
 
     description: {
-      fontSize: '1em',
-      fontWeight: 300,
+      fontSize: '.8em',
+      lineHeight: 2,
+      fontFamily: 'GC, serif',
+      fontStyle: 'italic',
       color: '#6e768a',
     },
 
@@ -713,6 +715,7 @@ const styles = {
           flex: 9,
           padding: '.5em 1em',
           fontSize: '.8em',
+          fontWeight: 300,
           lineHeight: 1,
           fontStyle: 'italic',
           color: '#6e768a',
@@ -866,7 +869,8 @@ const styles = {
     },
 
     description: {
-      fontWeight: 300,
+      fontFamily: 'GC, serif',
+      fontSize: '.9em',
       color: '#6e768a',
       whiteSpace: 'pre-line',
 

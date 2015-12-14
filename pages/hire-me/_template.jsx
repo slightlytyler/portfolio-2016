@@ -79,7 +79,9 @@ export default class ProjectsTemplate extends Component {
             If you have an existing project that needs help with front end development, Ember,
             React, React Native, Electron, or are breaking ground on a new one I’d be interested
             to talk with you.
-            <br /><br />
+          </p>
+
+          <p style={styles.contact}>
             slightlytyler@gmail.com
             <br />
             972 439 0587
@@ -214,18 +216,28 @@ const styles = {
     text: {
       marginTop: '-.25em',
       marginBottom: 0,
-      fontSize: '2em',
+      fontSize: '1.8em',
+      fontFamily: 'GC, serif',
+      fontStyle: 'italic',
       lineheight: 1,
       color: '#19243E',
     }
   },
 
   paragraph: {
+    marginBottom: '2em',
+    fontFamily: 'GC, serif',
     fontSize: '1.1em',
     fontWeight: 300,
 
     '@media (max-width: 30rem)': {
       fontSize: '140%'
     }
+  },
+
+  contact: {
+    fontWeight: 300,
+    fontSize: '1.2em',
+    color: '#19243E',
   }
 }

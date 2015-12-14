@@ -88,7 +88,7 @@ const styles = {
   },
 
   description: {
-    fontFamily: 'GC, sans-serif',
+    fontFamily: 'GC, serif',
     fontSize: '1.4em',
     fontStyle: 'italic',
     fontWeight: '200',
