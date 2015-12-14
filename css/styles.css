@@ -1,0 +1,21 @@
+@font-face {
+  font-family: 'GC';
+  font-style: normal;
+  font-weight: 200;
+  src: local('GC Book'), local('GC-Book'), url(../pages/assets/fonts/gc-book.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'GC';
+  font-style: italic;
+  font-weight: 200;
+  src: local('GC Book Italic'), local('GC-Book-Italic'), url(../pages/assets/fonts/gc-book-italic.otf) format('opentype');
+}
+
+*,
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { margin: 0; }

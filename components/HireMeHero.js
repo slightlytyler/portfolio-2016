@@ -32,7 +32,7 @@ export default class HireMeHero extends Component {
             className="description"
             style={styles.description}
           >
-            I’m a designer / developer specializing in client side applications
+            I’m a developer <span>&</span> designer specializing in client side applications
             written in Javascript.
           </div>
 
@@ -69,7 +69,7 @@ const styles = {
   },
 
   container: {
-    maxWidth: '40em',
+    maxWidth: '45em',
 
     '@media (max-width: 70rem)': {
       fontSize: '150%'
@@ -88,9 +88,11 @@ const styles = {
   },
 
   description: {
-    fontSize: '1.3125em',
-    fontWeight: '300',
-    color: '#19243e',
+    fontFamily: 'GC, sans-serif',
+    fontSize: '1.4em',
+    fontStyle: 'italic',
+    fontWeight: '200',
+    color: '#6E768A',
 
     '@media (max-width: 30rem)': {
       fontSize: '150%',
@@ -117,16 +119,16 @@ const styles = {
       padding: '1em 5em',
       borderWidth: 'calc(.0625em + 1px)',
       borderStyle: 'solid',
-      borderColor: '#19243e',
+      borderColor: '#6694FF',
       borderRadius: '.25em',
       fontSize: '1em',
       fontWeight: '400',
-      color: '#19243e',
+      color: '#6694FF',
       cursor: 'pointer',
       transition: 'background-color .1s, color .1s',
 
       ':hover': {
-        backgroundColor: '#19243e',
+        backgroundColor: '#6694FF',
         color: 'white'
       }
     }

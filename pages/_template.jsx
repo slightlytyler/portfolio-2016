@@ -11,6 +11,7 @@ import HireMeHero from '../components/HireMeHero';
 import FeaturedProject from '../components/FeaturedProject';
 import WIWO from '../components/WIWO';
 
+import '../css/styles.css'
 
 const Page = React.createClass({
   mixins: [State],

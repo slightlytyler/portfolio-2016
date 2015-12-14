@@ -29,15 +29,6 @@ export default class HTML extends React.Component {
           <link rel="shortcut icon" href={this.props.favicon} />
           <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,700' rel='stylesheet' type='text/css' />
           <TypographyStyle />
-          <style dangerouslySetInnerHTML={{__html:
-            `
-              *,
-              h1, h2, h3, h4, h5, h6 {
-                line-height: 1.5;
-              }
-              img { margin: 0; }
-            `
-          }} />
         </head>
         <body>
           <div id="react-mount" dangerouslySetInnerHTML={{__html: this.props.body}} />
