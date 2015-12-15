@@ -882,16 +882,13 @@ const styles = {
 
     description: {
       fontFamily: 'GC, serif',
-      fontSize: '.9em',
+      fontSize: '.81em',
       color: '#6e768a',
       whiteSpace: 'pre-line',
 
       text: {
         marginBottom: '1em',
-
-        '@media (max-width: 30rem)': {
-          lineHeight: 2
-        }
+        lineHeight: 2
       }
     },
 
