@@ -103,7 +103,7 @@ const styles = {
     container: {
       display: 'flex',
       justifyContent: 'center',
-      marginTop: '2em',
+      marginTop: '3em',
 
       '@media (max-width: 30rem)': {
         fontSize: '150%',
