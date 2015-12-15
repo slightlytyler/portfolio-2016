@@ -22,7 +22,7 @@ export default class ProjectsTemplate extends Component {
         >
           <ImageLoader
             className="pic"
-            src={link("/assets/profile@2x.jpg")}
+            src={link("/assets/profile.jpg")}
             style={styles.pic}
             containerStyle={styles.picContainer}
             previewStyle={styles.picPreview}
