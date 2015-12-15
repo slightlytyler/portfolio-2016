@@ -29,8 +29,8 @@ export default class ProjectTemplate extends Component {
         shortDescription: 'Flagship ordering site.',
         longDescription:
             `Bluesky (project name 'Commerce') is the flagship ordering site and public facing product for GCC.\
-            Serving primarily US customers Bluesky saw marked improvement in sales over past years where the\
-            the public facing site failed to gain traction.
+            Serving primarily US customers, Bluesky saw marked improvement in sales over past years where the\
+            the site failed to gain traction.
 
             To compete with industry leaders we completely overhauled the personalization process. Previously\
             the process was hindered by the limitations of server rendered applications, but using Ember we were\
@@ -61,7 +61,7 @@ export default class ProjectTemplate extends Component {
              branding. In addition to visual customization each client has a unique set of offerings\
              and personalization options.
 
-            I designed the spec for the personalization process as well as devloped the components used.\
+            I designed the spec for the personalization process for both printed and e greetings as well as devloped the components used.\
             In addition I scaffolded the application and built much of the boilerplate used across the Ember apps.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['41,048', '28,477'],
@@ -85,9 +85,9 @@ export default class ProjectTemplate extends Component {
         longDescription:
             `Admin is the CMS and product builder application used by the content creators and administration\
             of GCC. Admin core features allows users to build printed and e greetings from their raw assets,\
-            control available products and track inventory, generate and customize minisites, and oversee orders.
+            control available product and track inventory, generate and customize minisites, and oversee orders.
 
-            Admin was the largest front end application we built, only smaller than the API. I contributed heavily\
+            Admin was the largest front end application we built, only smaller than the Rails API. I contributed heavily\
             to nearly every facet of the app in addition to being the primary contributor the product builder flows.`,
         stack: ['Ember', 'Semantic UI'],
         contribution: ['111,561', '56,062'],
@@ -176,7 +176,7 @@ export default class ProjectTemplate extends Component {
         shortDescription: `Product preview portion of the portfolio.`,
         longDescription:
           `Product Viewer is a sub project of the portfolio. Rather than try to consume an API using Jekyll we opted to strip down Bluesky and build\
-          a small app purely for exploring current products. In addition to viewing products it also display a selection of verses and music options\
+          a small app purely for exploring current products. In addition to viewing products it also displays a selection of verses and music options\
           for e greetings.`,
         stack: ['Ember', 'Semantic UI', 'Soundcloud API'],
         contribution: ['1,843', '869'],
