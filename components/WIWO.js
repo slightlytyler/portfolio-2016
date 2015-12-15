@@ -12,7 +12,11 @@ export default class WIWO extends Component {
     projects: {
       Web: {
         Bluesky: {
-          link: ''
+          link: 'https://www.blueskycards.com/'
+        },
+
+        vitafive: {
+          link: 'http://www.vitafive.com/'
         },
 
         Frontnami: {
@@ -35,13 +39,13 @@ export default class WIWO extends Component {
 
       Mac: {
         Mocksy: {
-          link: ''
+          link: 'http://slightlytyler.github.io/mocksy/'
         }
       },
 
       Tools: {
         bluprint: {
-          link: ''
+          link: 'https://www.npmjs.com/package/bluprint'
         }
       }
     }
@@ -119,6 +123,46 @@ export default class WIWO extends Component {
     return `${(difference / 2)}px`;
   }
 
+  renderItem(project, projects, category) {
+    const { link } = projects[category][project];
+
+    if (link) {
+      return (
+        <a
+          ref={`category:${category}-project:${project}`}
+          href={link}
+          style={styles.projectSet.item.link}
+        >
+          <span style={styles.projectSet.item.text}>
+            {project}
+          </span>
+
+          {projects[category][project].comingSoon &&
+            <span style={styles.comingSoon}>
+              Coming Soon
+            </span>
+          }
+        </a>
+      );
+    } else {
+      return (
+        <span
+          ref={`category:${category}-project:${project}`}
+        >
+          <span style={styles.projectSet.item.text}>
+            {project}
+          </span>
+
+          {projects[category][project].comingSoon &&
+            <span style={styles.comingSoon}>
+              Coming Soon
+            </span>
+          }
+        </span>
+      );
+    }
+  }
+
   render() {
     const { projects } = this.props;
     const categories = Object.keys(projects);
@@ -155,19 +199,7 @@ export default class WIWO extends Component {
                         style={styles.projectSet.item.base}
                         key={`wiwoProject:${category}-${project}`}
                       >
-                        <span
-                          ref={`category:${category}-project:${project}`}
-                        >
-                          <span style={styles.projectSet.item.text}>
-                            {project}
-                          </span>
-
-                          {projects[category][project].comingSoon &&
-                            <span style={styles.comingSoon}>
-                              Coming Soon
-                            </span>
-                          }
-                        </span>
+                        {this.renderItem(project, projects, category)}
                       </li>
                     )
                   )}
@@ -271,13 +303,23 @@ const styles = {
       base: {
         position: 'relative',
         marginBottom: '1em',
-        color: 'rgba(255, 255, 255, 0.8)'
+        color: 'rgba(255, 255, 255, 0.8)',
+        cursor: 'default'
       },
 
       text: {
         fontFamily: 'GC, serif',
         fontStyle: 'italic',
         fontSize: '1.2em',
+      },
+
+      link: {
+        color: 'rgba(255, 255, 255, 0.8)',
+        textDecoration: 'none',
+
+        ':hover': {
+          color: 'rgba(255, 255, 255, 1)',
+        }
       }
     },
   },
