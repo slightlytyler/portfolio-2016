@@ -56,7 +56,7 @@ export default class ProjectTemplate extends Component {
       Minisites: {
         shortDescription: 'White labeled ordering site for business to client greetings.',
         longDescription:
-            `Minisites is GCC's primary product offering a variety of custom printed and e greetings.\
+            `Minisites is GCC's primary product, offering a variety of custom printed and e greetings.\
              Developed to be white labelable by business clients, each site has it's own subdomain and\
              branding. In addition to visual customization each client has a unique set of offerings\
              and personalization options.
