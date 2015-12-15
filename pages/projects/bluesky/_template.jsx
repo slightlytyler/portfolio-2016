@@ -21,7 +21,7 @@ export default class ProjectTemplate extends Component {
           modular apps focused on maintainability.`,
       owner: 'Greeting Card Collection',
       agency: 'Deep Space Robots',
-      image: link('/assets/projects/bluesky/sub-projects/commerce/home.png')
+      image: link('/assets/projects/bluesky/sub-projects/commerce/home.jpg')
     },
 
     subProjects: {
@@ -541,7 +541,7 @@ export default class ProjectTemplate extends Component {
                         style={styles.subProjectInfo.screenshots.item}
                       >
                         <ImageLoader
-                          src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProject.dirName || activeSubProjectKey.toLowerCase()}/${screenshot}.png`)}
+                          src={link(`/assets/projects/${project.name.toLowerCase()}/sub-projects/${activeSubProject.dirName || activeSubProjectKey.toLowerCase()}/${screenshot}.jpg`)}
                           aspectRatio={1.79}
                           style={styles.subProjectInfo.screenshots.image}
                         />
