@@ -503,7 +503,13 @@ export default class ProjectTemplate extends Component {
                     <span>Live&nbsp;Site:</span>&ensp;
                     <span>
                       {activeSubProject.link ?
-                        <a href={activeSubProject.link}>{activeSubProject.linkText || activeSubProject.link}</a> :
+                        <a
+                          href={activeSubProject.link}
+                          target="_blank"
+                          style={styles.details.link}
+                        >
+                            {activeSubProject.linkText || activeSubProject.link}
+                          </a> :
                         'Not available'
                       }
                     </span>
@@ -589,6 +595,12 @@ const styles = {
       fontSize: '.8em',
       fontWeight: 300,
       lineHeight: 1
+    },
+
+    link: {
+      color: '#6694FF',
+      textDecoration: 'none',
+      borderBottom: '1px solid #6694FF'
     },
 
     icon: {

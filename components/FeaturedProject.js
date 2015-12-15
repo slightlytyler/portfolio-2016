@@ -47,6 +47,7 @@ export default class FeaturedProject extends Component {
         return (
           <a
             href={this.props.link}
+            target="_blank"
             style={{
               ...styles.touch,
               ...styles[projectStyle].base

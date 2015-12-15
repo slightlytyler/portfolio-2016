@@ -131,6 +131,7 @@ export default class WIWO extends Component {
         <a
           ref={`category:${category}-project:${project}`}
           href={link}
+          target="_blank"
           style={styles.projectSet.item.link}
         >
           <span style={styles.projectSet.item.text}>
