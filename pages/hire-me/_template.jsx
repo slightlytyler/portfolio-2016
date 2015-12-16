@@ -75,7 +75,7 @@ export default class ProjectsTemplate extends Component {
           </header>
 
           <p style={styles.paragraph}>
-            I’m looking for new oppurtunites starting in 2016 either remote or on site in Dallas.
+            I’m looking for new opportunities starting in 2016 either remote or on site in Dallas.
             If you have an existing project that needs help with front end development, Ember,
             React, React Native, Electron, or are breaking ground on a new one I’d be interested
             in talking with you.
