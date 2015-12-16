@@ -219,9 +219,10 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
+    overflow: 'hidden',
     backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #5AE6C5 100%)',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       fontSize: '120%'
     },
   },
@@ -237,7 +238,7 @@ const styles = {
       fontWeight: '100',
       whiteSpace: 'nowrap',
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         top: '60%',
       },
     },
@@ -246,11 +247,11 @@ const styles = {
       position: 'relative',
       flex: 1,
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         flex: 2
       },
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         flex: 'none',
         height: '25em',
         fontSize: '150%'
@@ -262,7 +263,7 @@ const styles = {
     base: {
       width: '25%',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         width: '50%',
         marginBottom: '2em',
         fontSize: '250%'
@@ -276,12 +277,12 @@ const styles = {
       justifyContent: 'center',
       margin: '0 12.5%',
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         flex: 3,
         margin: '0 4em',
       },
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         flex: 'none',
         alignItems: 'flex-start',
         margin: '0 1em',

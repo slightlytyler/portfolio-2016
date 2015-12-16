@@ -132,11 +132,11 @@ const styles = {
     cursor: 'pointer',
     overflow: 'hidden',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       width: '50%',
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       width: '100%'
     },
   },
@@ -159,11 +159,11 @@ const styles = {
     opacity: 0,
     transition: 'opacity 1s',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       marginTop: '7em',
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       marginTop: '12em',
     },
 
@@ -187,11 +187,11 @@ const styles = {
     fontWeight: '300',
     whiteSpace: 'nowrap',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       fontSize: '150%'
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       fontSize: '300%'
     },
 
@@ -211,11 +211,11 @@ const styles = {
     borderTopWidth: 0,
     borderBottomWidth: 0,
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       borderRightWidth: 0,
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       borderBottomWidth: '1px',
     }
   },
@@ -244,11 +244,11 @@ const styles = {
       top: '45%',
       transform: 'translate(-50%, -50%)',
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         top: '50%',
       },
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         top: '60%',
       },
     }
@@ -267,7 +267,7 @@ const styles = {
       marginLeft: '8%',
       marginRight: '8%',
 
-      '@media (max-width: 70rem)': {
+      '@media (max-width: 1024px)': {
         alignItems: 'center'
       },
     },

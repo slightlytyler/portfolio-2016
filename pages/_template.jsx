@@ -120,11 +120,11 @@ const styles = {
     listStyle: 'none',
     margin: 0,
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       height: '100%',
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       height: '150%',
     },
   }

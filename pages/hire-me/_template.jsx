@@ -99,12 +99,12 @@ const styles = {
     paddingTop: '6em',
     margin: '0 auto',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       maxWidth: '75vw',
       fontSize: '150%'
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flexDirection: 'column',
       maxWidth: 'none',
       paddingTop: '8em',
@@ -120,7 +120,7 @@ const styles = {
     flex: 1,
     marginRight: '2em',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flexDirection: 'row',
       marginRight: 0,
       marginBottom: '4em'
@@ -132,7 +132,7 @@ const styles = {
     marginBottom: '.75em',
     borderRadius: '6px',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flex: 1,
       marginBottom: 0
     }
@@ -140,7 +140,7 @@ const styles = {
 
   picContainer: {
     flex: 'none',
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flex: 1
     }
   },
@@ -151,7 +151,7 @@ const styles = {
   },
 
   buttonsContainer: {
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flex: 2,
       alignSelf: 'flex-end',
       paddingLeft: '5rem'
@@ -172,7 +172,7 @@ const styles = {
     cursor: 'pointer',
     transition: 'background-color .1s, color .1s',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       fontSize: '120%'
     },
 
@@ -230,7 +230,7 @@ const styles = {
     fontSize: '1.1em',
     fontWeight: 300,
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       fontSize: '140%'
     }
   },

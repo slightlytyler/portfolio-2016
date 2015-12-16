@@ -567,7 +567,7 @@ const styles = {
     height: '100vh',
     marginTop: '-4.5em',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       flexDirection: 'column',
       height: 'auto',
     }
@@ -614,8 +614,9 @@ const styles = {
       flex: 1,
       borderRight: '2px solid #eeeff1',
       overflow: 'scroll',
+      '-webkit-overflow-scrolling': 'touch',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         display: 'none',
         flex: 'none',
         height: 'auto',
@@ -740,8 +741,9 @@ const styles = {
     base: {
       flex: 3,
       overflow: 'scroll',
+      '-webkit-overflow-scrolling': 'touch',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         overflow: 'visible',
         paddingTop: 0,
         marginTop: 0
@@ -757,10 +759,10 @@ const styles = {
         paddingBottom: '1em',
         borderBottom: '2px solid #eeeff1',
 
-        '@media (max-width: 30rem)': {
+        '@media (max-width: 500px)': {
           position: 'fixed',
           left: 0,
-          top: '3.8em',
+          top: '3.75em',
           width: '100%',
           paddingLeft: '5rem',
           paddingRight: '5rem',
@@ -838,12 +840,13 @@ const styles = {
       display: 'flex',
       height: 'calc(100% - 3.5em - 1px)',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         flexDirection: 'column',
         height: '100vh',
         paddingTop: '12em',
         fontSize: '300%',
-        overflow: 'scroll'
+        overflow: 'scroll',
+        '-webkit-overflow-scrolling': 'touch',
       }
     },
 
@@ -851,13 +854,14 @@ const styles = {
       position: 'relative',
       flex: 1,
       overflow: 'scroll',
+      '-webkit-overflow-scrolling': 'touch',
       height: '100%',
       paddingRight: '2em',
       paddingTop: '2em',
       marginRight: '2em',
       borderRight: '1px solid #eeeff1',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         flex: 'none',
         height: 'auto',
         paddingLeft: '5rem',
@@ -874,7 +878,7 @@ const styles = {
         maxWidth: '80%',
         marginBottom: '4em',
 
-        '@media (max-width: 30rem)': {
+        '@media (max-width: 500px)': {
           marginBottom: '3em',
         }
       }
@@ -888,18 +892,23 @@ const styles = {
 
       text: {
         marginBottom: '1em',
-        lineHeight: 2
-      }
+        lineHeight: 2,
+
+        '@media (max-width: 500px)': {
+          fontSize: '150%'
+        }
+      },
     },
 
     screenshots: {
       position: 'relative',
       flex: 1,
       overflow: 'scroll',
+      '-webkit-overflow-scrolling': 'touch',
       paddingTop: '2em',
       paddingBottom: '1em',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         overflow: 'visible',
       },
 

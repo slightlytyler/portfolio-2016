@@ -64,7 +64,7 @@ const styles = {
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
     transition: 'background-color .5s, background-image .5s',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       padding: '0 5rem',
       fontSize: '250%'
     },

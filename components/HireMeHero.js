@@ -63,7 +63,7 @@ const styles = {
     height: '64%',
     textAlign: 'center',
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       height: '50%'
     },
   },
@@ -71,11 +71,11 @@ const styles = {
   container: {
     maxWidth: '45em',
 
-    '@media (max-width: 70rem)': {
+    '@media (max-width: 1024px)': {
       fontSize: '150%'
     },
 
-    '@media (max-width: 30rem)': {
+    '@media (max-width: 500px)': {
       fontSize: '200%'
     },
   },
@@ -94,8 +94,9 @@ const styles = {
     fontWeight: '200',
     color: '#6E768A',
 
-    '@media (max-width: 30rem)': {
-      fontSize: '150%',
+    '@media (max-width: 500px)': {
+      padding: '0 1em',
+      fontSize: '175%',
     },
   },
 
@@ -105,7 +106,7 @@ const styles = {
       justifyContent: 'center',
       marginTop: '3em',
 
-      '@media (max-width: 30rem)': {
+      '@media (max-width: 500px)': {
         fontSize: '150%',
         marginTop: '3em',
       },
