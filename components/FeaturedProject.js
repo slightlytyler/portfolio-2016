@@ -3,6 +3,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Radium from 'radium';
+const RadiumLink = Radium(Link);
 
 import { link } from 'gatsby-helpers';
 import { upperCaseFirst } from 'change-case';
@@ -58,7 +59,7 @@ export default class FeaturedProject extends Component {
         );
       } else {
         return (
-          <Link
+          <RadiumLink
             to={link(this.props.link)}
             style={{
               ...styles.touch,
@@ -66,7 +67,7 @@ export default class FeaturedProject extends Component {
             }}
           >
             {content}
-          </Link>
+          </RadiumLink>
         );
       }
     };
