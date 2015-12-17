@@ -248,7 +248,7 @@ const styles = {
         top: '50%',
       },
 
-      '@media (max-width: 1024px)': {
+      '@media (max-width: 500px)': {
         top: '60%',
       },
     }
