@@ -179,7 +179,7 @@ export default class WIWO extends Component {
           ref="container"
           style={[
             styles.projectSet.container,
-            { transform: `translateX(${offset})` }
+            { paddingLeft: offset }
           ]}
         >
           {categories.map(category => (
@@ -219,7 +219,6 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
-    overflow: 'hidden',
     backgroundImage: 'linear-gradient(-180deg, #3D8A99 0%, #5AE6C5 100%)',
 
     '@media (max-width: 1024px)': {
