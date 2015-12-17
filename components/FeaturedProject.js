@@ -211,7 +211,7 @@ const styles = {
     borderTopWidth: 0,
     borderBottomWidth: 0,
 
-    '@media (max-width: 500px)': {
+    '@media (max-width: 1024px)': {
       borderRightWidth: 0,
     },
 
