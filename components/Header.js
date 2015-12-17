@@ -58,13 +58,19 @@ const styles = {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    height: '4.5em',
-    padding: '0 2rem',
+    height: '4.5rem',
+    padding: '0 2em',
     backgroundImage: 'linear-gradient(-180deg, rgba(255,255,255,0.30) 0%, rgba(255,255,255,0.40) 24%, rgba(227,227,229,0.40) 97%)',
     boxShadow: '0px 1px 0px 0px rgba(0,0,0,0.08)',
     transition: 'background-color .5s, background-image .5s',
 
+    '@media (max-width: 1024px)': {
+      height: '6.75rem',
+      fontSize: '150%'
+    },
+
     '@media (max-width: 500px)': {
+      height: '10rem',
       padding: '0 5rem',
       fontSize: '250%'
     },

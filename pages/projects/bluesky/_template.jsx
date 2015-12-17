@@ -406,7 +406,7 @@ export default class ProjectTemplate extends Component {
                 }
                 style={[
                   styles.subProjectInfo.header.pagination.item,
-                  styles.subProjectInfo.header.pagination.item.first,
+                  styles.subProjectInfo.header.pagination.item.prev,
                   !this.prevSubProject() && styles.subProjectInfo.header.pagination.item.disabled
                 ]}
               >
@@ -428,6 +428,7 @@ export default class ProjectTemplate extends Component {
                 }
                 style={[
                   styles.subProjectInfo.header.pagination.item,
+                  styles.subProjectInfo.header.pagination.item.next,
                   !this.nextSubProject() && styles.subProjectInfo.header.pagination.item.disabled
                 ]}
               >
@@ -564,8 +565,11 @@ export default class ProjectTemplate extends Component {
 const styles = {
   base: {
     display: 'flex',
-    height: '100vh',
-    marginTop: '-4.5em',
+    height: 'calc(100vh - 4.5rem)',
+
+    '@media (max-width: 1024px)': {
+      height: 'calc(100vh - 6.75rem)',
+    },
 
     '@media (max-width: 500px)': {
       flexDirection: 'column',
@@ -574,11 +578,18 @@ const styles = {
   },
 
   infoBase: {
-    height: 'calc(100% - 4.5em - 1px)',
+    height: 'calc(100% - 1px)',
     paddingLeft: '2em',
     paddingRight: '2em',
     paddingTop: '3em',
-    marginTop: 'calc(4.5em + 1px)',
+
+    '@media (max-width: 1024px)': {
+      height: 'calc(100% - 1px)',
+    },
+
+    '@media (max-width: 500px)': {
+      height: 'auto'
+    }
   },
 
   details: {
@@ -740,8 +751,7 @@ const styles = {
   subProjectInfo: {
     base: {
       flex: 3,
-      overflow: 'scroll',
-      WebkitOverflowScrolling: 'touch',
+      overflow: 'hidden',
 
       '@media (max-width: 500px)': {
         overflow: 'visible',
@@ -759,11 +769,19 @@ const styles = {
         paddingBottom: '1em',
         borderBottom: '2px solid #eeeff1',
 
+        '@media (max-width: 1024px)': {
+          paddingTop: '.5em',
+          paddingBottom: '.5em',
+          fontSize: '150%'
+        },
+
         '@media (max-width: 500px)': {
           position: 'fixed',
           left: 0,
-          top: '3.75em',
+          top: '10rem',
           width: '100%',
+          paddingTop: '1em',
+          paddingBottom: '1em',
           paddingLeft: '5rem',
           paddingRight: '5rem',
           fontSize: '300%',
@@ -810,7 +828,8 @@ const styles = {
 
       pagination: {
         item: {
-          padding: '.8em',
+          paddingTop: '.8em',
+          paddingBottom: '.8em',
           color: '#6E768A',
           fontSize: '.9em',
           fontWeight: 300,
@@ -818,8 +837,12 @@ const styles = {
           userSelect: 'none',
           opacity: 1,
 
-          first: {
+          prev: {
+            paddingRight: '.8em',
+          },
 
+          next: {
+            paddingLeft: '.8em'
           },
 
           disabled: {
@@ -844,7 +867,7 @@ const styles = {
       '@media (max-width: 500px)': {
         flexDirection: 'column',
         height: '100vh',
-        paddingTop: '10em',
+        paddingTop: '6em',
         fontSize: '300%',
         overflow: 'scroll',
         WebkitOverflowScrolling: 'touch',
@@ -862,6 +885,10 @@ const styles = {
       marginRight: '2em',
       borderRight: '1px solid #eeeff1',
 
+      '@media (max-width: 1024px)': {
+        fontSize: '125%'
+      },
+
       '@media (max-width: 500px)': {
         flex: 'none',
         height: 'auto',
@@ -878,6 +905,10 @@ const styles = {
       list: {
         maxWidth: '80%',
         marginBottom: '4em',
+
+        '@media (max-width: 1024px)': {
+          maxWidth: '100%'
+        },
 
         '@media (max-width: 500px)': {
           marginBottom: '3em',

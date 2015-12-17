@@ -57,9 +57,7 @@ const Page = React.createClass({
     return (
       <div
         className="page"
-        style={{
-          paddingTop: '4.5em',
-        }}
+        style={styles.page}
       >
         <Header
           isHomePage={isHomePage}
@@ -69,40 +67,41 @@ const Page = React.createClass({
         {!isHomePage ? <RouteHandler {...this.props}/> : (
           <div
             ref="home"
-            style={{ height: 'calc(98vh - 4.5em)' }}
           >
-            <HireMeHero />
+            <div style={styles.main}>
+              <HireMeHero />
 
-            <ul
-              key="featuredProjectsList"
-              className="featured-projects"
-              style={styles.featuredProjectsList}
-            >
-              {Object.keys(featuredProjects).map(projectKey => {
-                let project = featuredProjects[projectKey];
-                let {
-                  color,
-                  logoBaseline,
-                  link,
-                  linkText,
-                  projectStyle
-                } = project;
+              <ul
+                key="featuredProjectsList"
+                className="featured-projects"
+                style={styles.featuredProjectsList}
+              >
+                {Object.keys(featuredProjects).map(projectKey => {
+                  let project = featuredProjects[projectKey];
+                  let {
+                    color,
+                    logoBaseline,
+                    link,
+                    linkText,
+                    projectStyle
+                  } = project;
 
-                return (
-                  <FeaturedProject
-                    key={`featuredProject:${projectKey}`}
-                    name={projectKey}
-                    color={color}
-                    logoBaseline={logoBaseline}
-                    link={link}
-                    linkText={linkText}
-                    projectStyle={projectStyle}
-                  />
-                )
-              })}
-            </ul>
+                  return (
+                    <FeaturedProject
+                      key={`featuredProject:${projectKey}`}
+                      name={projectKey}
+                      color={color}
+                      logoBaseline={logoBaseline}
+                      link={link}
+                      linkText={linkText}
+                      projectStyle={projectStyle}
+                    />
+                  )
+                })}
+              </ul>
+            </div>
 
-            <WIWO />
+             <WIWO />
           </div>
         )}
       </div>
@@ -113,6 +112,26 @@ const Page = React.createClass({
 export default Radium(Page);
 
 const styles = {
+  page: {
+    paddingTop: '4.5rem',
+
+    '@media (max-width: 1024px)': {
+      paddingTop: '6.75rem'
+    },
+
+    '@media (max-width: 500px)': {
+      paddingTop: '10rem'
+    }
+  },
+
+  main: {
+    height: 'calc(98vh - 4.5rem)',
+
+    '@media (max-width: 1024px)': {
+      height: 'auto'
+    }
+  },
+
   featuredProjectsList: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -121,11 +140,7 @@ const styles = {
     margin: 0,
 
     '@media (max-width: 1024px)': {
-      height: '100%',
-    },
-
-    '@media (max-width: 500px)': {
-      height: '150%',
+      height: 'auto'
     },
   }
 }

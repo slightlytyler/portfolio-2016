@@ -41,12 +41,12 @@ export default class HireMeHero extends Component {
               to={link('/hire-me/')}
               style={styles.hireMe.link}
             >
-              <span
+              <section
                 ref="hireMeHeroButton"
                 style={styles.hireMe.button}
               >
                 Hire Me
-              </span>
+              </section>
             </Link>
           </div>
         </div>
@@ -63,8 +63,21 @@ const styles = {
     height: '64%',
     textAlign: 'center',
 
+    '@media (max-width: 1024px)': {
+      height: 'auto',
+      paddingTop: '9em',
+      paddingBottom: '9em'
+    },
+
+    '@media (max-width: 1024px) and (min-width: 501px) and (orientation: portrait)': {
+      paddingTop: '15em',
+      paddingBottom: '15em',
+      fontSize: '125%'
+    },
+
     '@media (max-width: 500px)': {
-      height: '50%'
+      paddingTop: '20em',
+      paddingBottom: '20em',
     },
   },
 
@@ -127,8 +140,14 @@ const styles = {
       color: '#6694FF',
       cursor: 'pointer',
       transition: 'background-color .1s, color .1s',
+      userSelect: 'none',
 
       ':hover': {
+        backgroundColor: '#6694FF',
+        color: 'white'
+      },
+
+      ':active': {
         backgroundColor: '#6694FF',
         color: 'white'
       }

@@ -224,6 +224,15 @@ const styles = {
     '@media (max-width: 1024px)': {
       fontSize: '120%'
     },
+
+    '@media (max-width: 1024px) and (min-width: 501px) and (orientation: portrait)': {
+      height: 'auto',
+      fontSize: '175%'
+    },
+
+    '@media (max-width: 500px)': {
+      height: '80vh'
+    },
   },
 
   header: {
@@ -251,9 +260,7 @@ const styles = {
       },
 
       '@media (max-width: 500px)': {
-        flex: 'none',
-        height: '25em',
-        fontSize: '150%'
+
       },
     },
   },
@@ -279,6 +286,10 @@ const styles = {
       '@media (max-width: 1024px)': {
         flex: 3,
         margin: '0 4em',
+      },
+
+      '@media (max-width: 1024px) and (orientation: portrait)': {
+        margin: '0 2em',
       },
 
       '@media (max-width: 500px)': {
@@ -333,7 +344,7 @@ const styles = {
     fontWeight: '400',
     textTransform: 'uppercase',
     whiteSpace: 'nowrap',
-    borderWidth: 'calc(.0625em + .5px)',
+    borderWidth: 'calc(.0625em + 1px)',
     borderStyle: 'solid',
     borderColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: '.6em'

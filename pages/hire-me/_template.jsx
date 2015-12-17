@@ -107,7 +107,7 @@ const styles = {
     '@media (max-width: 500px)': {
       flexDirection: 'column',
       maxWidth: 'none',
-      paddingTop: '8em',
+      paddingTop: '2em',
       margin: '0 5rem',
       fontSize: '250%'
     }
@@ -140,6 +140,7 @@ const styles = {
 
   picContainer: {
     flex: 'none',
+
     '@media (max-width: 500px)': {
       flex: 1
     }

@@ -59,7 +59,7 @@ export default class FeaturedProject extends Component {
         );
       } else {
         return (
-          <RadiumLink
+          <Link
             to={link(this.props.link)}
             style={{
               ...styles.touch,
@@ -67,7 +67,7 @@ export default class FeaturedProject extends Component {
             }}
           >
             {content}
-          </RadiumLink>
+          </Link>
         );
       }
     };
@@ -135,10 +135,16 @@ const styles = {
 
     '@media (max-width: 1024px)': {
       width: '50%',
+      height: '45vh'
+    },
+
+    '@media (max-width: 1024px) and (orientation: portrait)': {
+      height: '30vh'
     },
 
     '@media (max-width: 500px)': {
-      width: '100%'
+      width: '100%',
+      height: '35vh'
     },
   },
 
