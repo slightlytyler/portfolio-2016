@@ -810,6 +810,7 @@ const styles = {
 
       pagination: {
         item: {
+          padding: '.8em',
           color: '#6E768A',
           fontSize: '.9em',
           fontWeight: 300,
@@ -818,7 +819,7 @@ const styles = {
           opacity: 1,
 
           first: {
-            marginRight: '2em'
+
           },
 
           disabled: {
@@ -843,7 +844,7 @@ const styles = {
       '@media (max-width: 500px)': {
         flexDirection: 'column',
         height: '100vh',
-        paddingTop: '12em',
+        paddingTop: '10em',
         fontSize: '300%',
         overflow: 'scroll',
         '-webkit-overflow-scrolling': 'touch',
@@ -909,7 +910,9 @@ const styles = {
       paddingBottom: '1em',
 
       '@media (max-width: 500px)': {
+        flex: 'none',
         overflow: 'visible',
+        paddingBottom: '2em'
       },
 
       list: {

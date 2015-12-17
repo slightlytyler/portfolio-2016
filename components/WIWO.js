@@ -328,12 +328,12 @@ const styles = {
   comingSoon: {
     padding: '.25em .5em .15em',
     marginLeft: '1em',
-    verticalAlign: '.5em',
+    verticalAlign: '.4em',
     fontSize: '.5em',
     fontWeight: '400',
     textTransform: 'uppercase',
     whiteSpace: 'nowrap',
-    borderWidth: 'calc(.0625em + 1px)',
+    borderWidth: 'calc(.0625em + .5px)',
     borderStyle: 'solid',
     borderColor: 'rgba(255, 255, 255, 0.8)',
     borderRadius: '.6em'
