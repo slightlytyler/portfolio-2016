@@ -71,7 +71,7 @@ export default class ProjectsTemplate extends Component {
         >
           <header style={styles.header.base}>
             <h2 style={styles.header.text}>Hello I’m Tyler Martinez&nbsp;</h2>
-            <h2 style={styles.header.text}>and I build Javascript applications.</h2>
+            <h2 style={styles.header.text}>and I build JavaScript applications.</h2>
           </header>
 
           <p style={styles.paragraph}>

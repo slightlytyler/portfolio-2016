@@ -33,7 +33,7 @@ export default class HireMeHero extends Component {
             style={styles.description}
           >
             I’m a developer <span>&</span> designer specializing in client side applications
-            written in Javascript.
+            written in JavaScript.
           </div>
 
           <div style={styles.hireMe.container}>
