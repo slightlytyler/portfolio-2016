@@ -18,25 +18,25 @@ const Page = React.createClass({
 
   render: function() {
     const featuredProjects = {
-      bluesky: {
-        color: "#0d5685",
+      'bernies-tax-plan': {
+        color: "#017DDA",
         logoBaseline: -1.8,
-        link: '/projects/bluesky/',
-        linkText: 'Explore Project',
-        projectStyle: 'one'
+        link: 'http://bernies-tax.dataviz.work/',
+        linkText: 'Explore the Plan',
+        projectStyle: 'two'
       },
 
       mocksy: {
         logoBaseline: -.7,
         link: 'https://slightlytyler.github.io/mocksy',
-        linkText: 'Download App',
+        linkText: 'Download the App',
         projectStyle: 'two'
       },
 
       'todo': {
         logoBaseline: -.45,
         link: 'https://github.com/slightlytyler/react-native-redux-todo',
-        linkText: 'View Repo',
+        linkText: 'View the Repo',
         projectStyle: 'one'
       },
 
