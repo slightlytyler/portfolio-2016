@@ -11,12 +11,8 @@ export default class WIWO extends Component {
   static defaultProps = {
     projects: {
       Web: {
-        Bluesky: {
-          link: 'https://www.blueskycards.com/'
-        },
-
-        vitafive: {
-          link: 'http://www.vitafive.com/'
+        'dataviz.work' :{
+          link: 'http://bernies-tax.dataviz.work/'
         },
 
         Frontnami: {

@@ -32,7 +32,7 @@ export default class HireMeHero extends Component {
             className="description"
             style={styles.description}
           >
-            I’m a developer <span>&</span> designer specializing in client side applications
+            I’m a UI Engineer <span>&</span> Designer specializing in client side applications
             written in JavaScript.
           </div>
 

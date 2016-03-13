@@ -75,16 +75,15 @@ export default class ProjectsTemplate extends Component {
           </header>
 
           <p style={styles.paragraph}>
-            I’m looking for new opportunities starting in 2016 either remote or on site in Dallas.
-            If you have an existing project that needs help with front end development, Ember,
-            React, React Native, Electron, or are breaking ground on a new one I’d be interested
-            in talking with you.
+            I build feature rich JavaScript applications for a variety of platforms.
+            If you have an existing project or are breaking ground on a new one I can
+            help with development / architecture for React, React Native, and Electron.
+            <br />
+            Currently looking for a part time (~20hrs / week) project working remote.
           </p>
 
           <p style={styles.contact}>
             slightlytyler@gmail.com
-            <br />
-            972 439 0587
           </p>
         </section>
       </div>
@@ -228,8 +227,9 @@ const styles = {
   paragraph: {
     marginBottom: '2em',
     fontFamily: 'GC, serif',
-    fontSize: '1.1em',
+    fontSize: '1em',
     fontWeight: 300,
+    lineHeight: 1.5,
 
     '@media (max-width: 500px)': {
       fontSize: '140%'
