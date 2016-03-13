@@ -78,7 +78,7 @@ export default class ProjectsTemplate extends Component {
             I build feature rich JavaScript applications for a variety of platforms.
             If you have an existing project or are breaking ground on a new one I can
             help with development / architecture for React, React Native, and Electron.
-            <br />
+            <br /><br />
             Currently looking for a part time (~20hrs / week) project working remote.
           </p>
 
