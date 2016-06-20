@@ -1,7 +1,7 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "slightlytyler.com",
   "version": "1.0.0",
-  "description": "Gatsby default starter",
+  "description": "Portfolio of Tyler Martinez <slighlytyler>",
   "main": "n/a",
   "scripts": {
     "deploy": "gatsby build && git-directory-deploy --directory public --branch master",
@@ -10,7 +10,7 @@
   "keywords": [
     "gatsby"
   ],
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Tyler Martinez <slightlytyler@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "change-case": "^2.3.0",
