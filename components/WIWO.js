@@ -33,16 +33,20 @@ export default class WIWO extends Component {
         }
       },
 
-      Mac: {
+      Desktop: {
         Mocksy: {
           link: 'http://slightlytyler.github.io/mocksy/'
         }
       },
 
       Tools: {
-        bluprint: {
-          link: 'https://www.npmjs.com/package/bluprint'
-        }
+        'React Portland UI': {
+          link: 'https://github.com/slightlytyler/react-portland-ui'
+        },
+
+        'Arrowsmith Web Starter': {
+          link: 'https://github.com/slightlytyler/arrowsmith-web-starter'
+        },
       }
     }
   };

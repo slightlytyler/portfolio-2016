@@ -70,16 +70,32 @@ export default class ProjectsTemplate extends Component {
           style={styles.content}
         >
           <header style={styles.header.base}>
-            <h2 style={styles.header.text}>Hello I’m Tyler Martinez&nbsp;</h2>
-            <h2 style={styles.header.text}>and I build JavaScript applications.</h2>
+            <h2 style={styles.header.text}>I’m Tyler Martinez&nbsp;</h2>
+            <h2 style={styles.header.text}>and I build JavaScript apps.</h2>
           </header>
 
           <p style={styles.paragraph}>
-            I build feature rich JavaScript applications for a variety of platforms.
             If you have an existing project or are breaking ground on a new one I can
-            help with development / architecture for React, React Native, and Electron.
+            help with React development, JavaScript tooling, front-end architecture, and UI/UX design.
             <br /><br />
-            Currently looking for a part time (~20hrs / week) project working remote.
+            Modern client side apps can be daunting with their many moving parts and complicated tooling.
+            I work to empower teams with rock solid, JS infrastructure and web dev expertise.
+            <br />
+          </p>
+
+          <ul style={styles.paragraph}>
+            <li>Having problems with Webpack? I can get you back to shipping code.</li>
+            <br />
+            <li>Not sure how to handle auth? I've done that before.</li>
+            <br />
+            <li>Still haven't written those tests? I can help get you covered.</li>
+          </ul>
+
+          <p style={styles.paragraph}>
+            I have experience working with teams of all sizes where I worked not only as a dev, but as a mentor
+            guiding projects through the tumultuous world of client side JS apps.
+            <br /><br />
+            I'm currently seeking a position on site in Dallas or remote and would love to hear about your project.
           </p>
 
           <p style={styles.contact}>
