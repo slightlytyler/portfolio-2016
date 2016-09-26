@@ -40,10 +40,10 @@ const Page = React.createClass({
         projectStyle: 'one'
       },
 
-      'bluprint': {
+      'open-source': {
         logoBaseline: -.26,
-        link: 'https://www.npmjs.com/package/bluprint',
-        linkText: 'Download from NPM',
+        link: 'https://github.com/slightlytyler/react-svgcon',
+        linkText: 'Checkout a project',
         projectStyle: 'two'
       }
     };
